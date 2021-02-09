@@ -1,0 +1,14 @@
+.contentpage {
+
+
+  display: -webkit-flex;
+  display: flex;
+
+  @import '../molecules/contentnavigation';
+  @import '../molecules/content';
+
+
+  // @import '../molecules/molecule';
+
+
+}
