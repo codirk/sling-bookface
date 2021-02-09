@@ -28,6 +28,7 @@
     "filemanager-webpack-plugin": "^2.0.5",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
+    "gulp-util": "^3.0.8",
     "http-server": "^0.12.3",
     "less": "^3.12.2",
     "less-loader": "^7.0.1",
