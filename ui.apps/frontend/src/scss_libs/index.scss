@@ -1,0 +1,121 @@
+/* have a look at https://sass-lang.com/guide */
+@import './foundation/foundation';
+
+
+
+/*
+:global {
+  @import 'node_modules/jquery-ui/themes/black-tie/jquery-ui.min';
+  @import 'node_modules/jquery-ui/themes/black-tie/jquery.ui.theme';
+}
+*/
+/*
+:global {
+  @import '~jquery-ui-dist/jquery-ui';
+  @import '~jquery-ui-dist/jquery-ui.theme';
+}
+*/
+
+
+///*
+.test {
+  background: url("./test.png"); // << not works, but moving image directory to 'src' work fine.
+}
+//*/
+
+//@import "~bootstrap/scss/bootstrap"; // megamenu will be damaged by bootstrap
+
+@import "~jquery-ui-dist/jquery-ui";// same as @import "~jquery-ui-dist/jquery-ui.css";
+@import "~jquery-ui-dist/jquery-ui.theme";
+@import "~datatables.net-dt/css/jquery.dataTables";
+
+@import "~jstree/dist/themes/default/style.css";
+
+
+
+// @import "~jquery-ui-bundle/jquery-ui";
+// @import "~jquery-ui-bundle/jquery-ui.theme";
+// @import "~jquery-ui/themes/base/core";
+// @import 'node_modules/jquery-ui/themes/base/core';
+// @import 'node_modules/jquery-ui/themes/base/base';
+// @import "~jquery-ui/themes/base/base";
+// @import "~jquery-ui/themes/base/all";
+
+//@import "~jquery-ui/themes/base/all";
+
+
+
+
+/*
+$bgcolor: lightblue;
+$textcolor: darkblue;
+$fontsize: 18px;
+
+
+body {
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+}
+
+.foo-baz-dirk {
+  color: red;
+}
+
+.bar {
+  color: blue;
+}
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+.box { @include transform(rotate(30deg)); }
+
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+%equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.success {
+  @extend %message-shared;
+  border-color: green;
+}
+
+.error {
+  @extend %message-shared;
+  border-color: red;
+}
+
+.warning {
+  @extend %message-shared;
+  border-color: yellow;
+}
+*/

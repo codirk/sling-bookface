@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.messetat.sling.sling-bookface</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <artifactId>sling-bookface</artifactId>
+    </parent>
+
+
+    <artifactId>ui.content</artifactId>
+    <name>${groupId}:${artifactId}</name>
+
+    <packaging>content-package</packaging>
+
+
+
+    <build>
+        <resources>
+            <!-- define the resources that will go into the package -->
+            <resource>
+                <directory>${basedir}/src/main/content/jcr_root</directory>
+                <excludes>
+                    <!-- exclude .vlt control files in the package -->
+                    <exclude>**/.vlt</exclude>
+                    <exclude>**/.vltignore</exclude>
+                    <exclude>**/.gitignore</exclude>
+                    <exclude>**/*.iml</exclude>
+                    <exclude>**/.classpath</exclude>
+                    <exclude>**/.project</exclude>
+                    <exclude>**/.settings</exclude>
+                    <exclude>**/.DS_Store</exclude>
+                    <exclude>**/target/**</exclude>
+                    <exclude>**/pom.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <includeEmptyDirs>true</includeEmptyDirs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.jackrabbit</groupId>
+                <artifactId>filevault-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <group>${groupId}</group>
+                    <filters>
+                        <!--
+                        <filter>
+                            <root>/conf/${context}</root>
+                            <mode>replace</mode>
+                        </filter>
+                        -->
+                        <filter>
+                            <root>/content/${context}</root>
+                            <mode>merge</mode>
+                        </filter>
+                    </filters>
+                    <!--
+                    <acHandling>merge_preserve</acHandling>
+                    -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <verbose>true</verbose>
+                    <failOnError>true</failOnError>
+                    <group>sample</group>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <!-- Jackrabbit FileVault Package Plugin -->
+                <plugin>
+                    <groupId>org.apache.jackrabbit</groupId>
+                    <artifactId>filevault-package-maven-plugin</artifactId>
+                    <version>1.1.6</version>
+
+                    <!--executions>
+                        <execution>
+                            <id>tt</id>
+                            <inherited>false</inherited>
+                            <phase>install</phase>
+
+                            <goals>
+                                <goal>validate-files</goal>
+                            </goals>
+                        </execution>
+                    </executions-->
+                    <!--
+                    <version>1.0.1</version>
+                    -->
+                    <configuration>
+                        <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

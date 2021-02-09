@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>de.messetat.sling.sling-bookface</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <artifactId>sling-bookface</artifactId>
+    </parent>
+
+    <artifactId>ui.apps</artifactId>
+    <name>${groupId}:${artifactId}</name>
+
+    <packaging>content-package</packaging>
+
+    <properties>
+        <frontend-maven-plugin-phase>generate-sources</frontend-maven-plugin-phase>
+    </properties>
+
+    <build>
+        <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/content/jcr_root</directory>
+                <targetPath>${project.build.directory}/jcr_root</targetPath>
+                <excludes>
+                    <exclude>**/.vlt</exclude>
+                    <exclude>**/.vltignore</exclude>
+                    <exclude>**/.gitignore</exclude>
+                    <exclude>**/*.iml</exclude>
+                    <exclude>**/.classpath</exclude>
+                    <exclude>**/.project</exclude>
+                    <exclude>**/.settings</exclude>
+                    <exclude>**/.DS_Store</exclude>
+                    <exclude>**/target/**</exclude>
+                    <exclude>**/pom.xml</exclude>
+                </excludes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.6</version>
+                <configuration>
+                    <workingDirectory>./frontend</workingDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <phase>${frontend-maven-plugin-phase}</phase>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <!-- See https://nodejs.org/en/download/ for latest node and npm (lts) versions -->
+                            <nodeVersion>v14.9.0</nodeVersion>
+                            <npmVersion>6.14.8</npmVersion>
+                            <!-- please synchonize this version with your ./frontend/.nvmrc  -->
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>npm install</id>
+                        <phase>${frontend-maven-plugin-phase}</phase>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>npm run build</id>
+                        <phase>${frontend-maven-plugin-phase}</phase>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run maven:build</arguments>
+                            <environmentVariables>
+                                <TARGET>/etc/clientlibs/sling-bookface</TARGET>
+                            </environmentVariables>
+                        </configuration>
+                    </execution>
+                    <!--
+                              <execution>
+                                <id>javascript tests</id>
+                                <goals>
+                                  <goal>karma</goal>
+                                </goals>
+                                <configuration>
+                                  <karmaConfPath>src/test/javascript/karma.conf.ci.js</karmaConfPath>
+                                </configuration>
+                              </execution>
+                    -->
+                </executions>
+            </plugin>
+
+            <!--plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin-->
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <includeEmptyDirs>true</includeEmptyDirs>
+                </configuration>
+            </plugin>
+
+            <!-- have a look at http://jackrabbit.apache.org/filevault-package-maven-plugin/package-mojo.html -->
+            <plugin>
+                <groupId>org.apache.jackrabbit</groupId>
+                <artifactId>filevault-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+
+                <configuration>
+                    <group>${groupId}</group>
+                    <jcrRootSourceDirectory>
+                        ${project.build.directory}/jcr_root,${project.basedir}/jcr_root,${project.basedir}/src/main/jcr_root,${project.basedir}/src/main/content/jcr_root,${project.basedir}/src/content/jcr_root,${project.build.outputDirectory}
+                    </jcrRootSourceDirectory>
+                    <filters>
+                        <filter>
+                            <root>/apps/${context}</root>
+                            <mode>replace</mode>
+                        </filter>
+                        <filter>
+                            <root>/etc/clientlibs/${context}</root>
+                            <mode>replace</mode>
+                        </filter>
+                    </filters>
+                    <embeddeds>
+                        <embedded>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>core</artifactId>
+                            <target>/apps/${context}/install</target>
+                        </embedded>
+                    </embeddeds>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>htl-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>com.groupon.maven.plugin.json</groupId>
+                <artifactId>json-schema-validator</artifactId>
+                <version>1.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>validate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <validations>
+                        <validation>
+                            <directory>${basedir}/src/main/content</directory>
+                            <includes>
+                                <include>**/*.json</include>
+                            </includes>
+                        </validation>
+                    </validations>
+                </configuration>
+            </plugin>
+            <!-- TODO disabled for the moment -->
+            <!--plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>xml-maven-plugin</artifactId>
+            </plugin-->
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <version>${project.version}</version>
+            <artifactId>core</artifactId>
+        </dependency>
+
+
+        <!--
+        <dependency>
+            <groupId>javax.jcr</groupId>
+            <artifactId>jcr</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+        </dependency>
+        -->
+
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>deployPackage</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+
+        <profile>
+            <id>clean-frontend-modules</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                                <phase>clean</phase>
+                                <configuration>
+                                    <excludeDefaultDirectories>true</excludeDefaultDirectories>
+                                    <filesets>
+                                        <fileset>
+                                            <directory>node</directory>
+                                            <useDefaultExcludes>true</useDefaultExcludes>
+                                        </fileset>
+                                        <fileset>
+                                            <directory>node_modules</directory>
+                                            <useDefaultExcludes>true</useDefaultExcludes>
+                                        </fileset>
+                                    </filesets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>no-frontend</id>
+            <properties>
+                <frontend-maven-plugin-phase>none</frontend-maven-plugin-phase>
+            </properties>
+        </profile>
+    </profiles>
+</project>
