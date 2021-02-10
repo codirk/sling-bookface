@@ -81,7 +81,15 @@
                         <configuration>
                             <arguments>run maven:build</arguments>
                             <environmentVariables>
-                                <TARGET>/etc/clientlibs/sling-bookface</TARGET>
+                                <!--
+                                this is not working at the moment
+                                https://stackabuse.com/the-ultimate-guide-to-configuring-npm/
+                                used in
+                                - frontend/gulpfile.js/index.js
+                                - frontend/build/globals.js
+
+                                 -->
+                                <npm_config_target>/etc/clientlibs/sling-bookface</npm_config_target>
                             </environmentVariables>
                         </configuration>
                     </execution>

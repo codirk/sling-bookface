@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "This is a webpack build for plain js,css and others as less, scss,...",
   "private": true,
+  "config": {
+    "target": "/etc/clientlibs/sling-bookface"
+  },
   "scripts": {
     "maven:build:DDD": "echo 'Error: maven:build not iplemented for the moment' && exit 1",
     "maven:build": "echo 'called by maven' && npm run build && npm run maven:copyfiles",
@@ -12,7 +15,7 @@
     "clean:dist": "rimraf dist",
     "clean:node_modules": "rimraf node_modules",
     "watch": "webpack --config        build/webpack.config.js --progress --watch",
-    "webpack": "webpack --config      build/webpack.config.js --define target=$TARGET --env.foo=$TARGET",
+    "webpack": "webpack --config      build/webpack.config.js",
     "webpack:js": "webpack --config   build/webpack.js.config.js --progress",
     "webpack:less": "webpack --config build/webpack.less.config.js --progress",
     "webpack:scss": "webpack --config build/webpack.scss.config.js --progress",

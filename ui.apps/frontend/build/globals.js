@@ -16,8 +16,8 @@ const config = {
 
     staticPath: '',
 
-    // publicPath: process.env.foo,
-    publicPath: '/etc/clientlibs/sling-bookface/',
+    // publicPath: '/etc/clientlibs/sling-bookface/',
+    publicPath: process.env.npm_package_config_target,
 
     filePath: './',
 
