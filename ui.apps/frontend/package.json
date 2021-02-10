@@ -18,11 +18,20 @@
     "webpack:js": "webpack --config   build/webpack.js.config.js --progress",
     "webpack:less": "webpack --config build/webpack.less.config.js --progress",
     "webpack:scss": "webpack --config build/webpack.scss.config.js --progress",
-    "webpack:ts": "webpack --config build/webpack.ts.config.js --progress"
+    "webpack:ts": "webpack --config build/webpack.ts.config.js --progress",
+    "sync": "concurrently 'npm run watch' 'npm run sync:apps' 'npm run sync:content' 'npm run sync:frontend' 'npm run gulp:watch'",
+    "gulp:watch": "gulp watch",
+    "sync:frontend": "aemsync -t http://admin:admin@localhost:8080 -u /bin/cpm/package.service.html  -e '(.git|.svn|.hg|.html)' -w ../target/sync/main/content/jcr_root",
+    "sync:apps": "aemsync -t http://admin:admin@localhost:8080 -u /bin/cpm/package.service.html -w ../src/main/content/jcr_root",
+    "sync:content": "aemsync -t http://admin:admin@localhost:8080 -u /bin/cpm/package.service.html -w ../../ui.content/src/main/content/jcr_root"
   },
   "author": "Dirk Messetat",
   "license": "MIT",
   "devDependencies": {
+    "aemsync": "^4.0.1",
+    "concurrently": "^5.3.0",
+    "log-timestamp": "^0.3.0",
+    "md5": "^2.3.0",
     "css-loader": "^4.3.0",
     "eslint": "^7.9.0",
     "eslint-loader": "^4.0.2",

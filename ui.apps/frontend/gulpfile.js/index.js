@@ -1,5 +1,5 @@
 const path = require('path');
-const {src, dest} = require('gulp');
+const {parallel, watch, src, dest} = require('gulp');
 const gulp = require('gulp');
 //const gutil = require('gulp-util');
 
@@ -21,6 +21,38 @@ gulp.task('default', function(cb) {
 
 
 
+const relative_watchfolder = '../public';
+const watchfolder_resolved = path.resolve(__dirname, relative_watchfolder);
+
+function watchJavascriptFolder(cb) {
+    console.log(` Observing ... ${watchfolder_resolved}`);
+
+    watch(watchfolder_resolved + '/**/*.js', {ignoreInitial: true}, function (cb) {
+        console.log(`${watchfolder_resolved}/**/* Changed`);
+
+        return src(watchfolder_resolved +
+            '/**/*.js')
+            .pipe(dest('../../ui.apps/target/sync/main/content/jcr_root/'));
+        cb();
+    })
+    cb();
+}
+
+function watchStylesFolder(cb) {
+    console.log(` Observing ... ${watchfolder_resolved}`);
+
+    watch(watchfolder_resolved + '/**/*.css', {ignoreInitial: true}, function (cb) {
+        console.log(`${watchfolder_resolved}/**/* Changed`);
+
+        return src(watchfolder_resolved +
+            '/**/*.css')
+            .pipe(dest('../../ui.apps/target/sync/main/content/jcr_root/'));
+        cb();
+    })
+    cb();
+}
+
+gulp.task('watch',  parallel(watchJavascriptFolder,watchStylesFolder));
 
 
 

@@ -1,12 +1,15 @@
 //$textcolor: black;
 $fontsize: 14px;
+$textcolor: #333333;
 
 * {
   font-family: Arial, Helvetica, sans-serif;
   font-size: $fontsize;
-//  color: $textcolor;
+  color:  $textcolor;
 }
 
+
+/*
 header {
   background-color: #0a6aa1;
   padding: 30px;
@@ -43,3 +46,5 @@ footer {
   color: white;
   bottom: 0;
 }
+
+*/

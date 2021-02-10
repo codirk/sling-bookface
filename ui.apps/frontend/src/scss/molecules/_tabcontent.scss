@@ -1,0 +1,26 @@
+.tabcontent {
+  /* Style the tab content */
+  //  display: none;
+  // padding: 6px 12px;
+  // border: 1px solid #ccc;
+  // border-top: none;
+
+  > div {
+    padding: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #7f7f7f;
+  }
+
+  i.fa-circle, span {
+    color: #c12127;
+  }
+
+  h1 {
+    color: #c12127;
+    margin-top: 20px;
+  }
+
+}

@@ -1,0 +1,15 @@
+.title {
+  position: relative;
+  text-align: center;
+  font-weight: normal ;
+
+  i:nth-child(1) {
+    position: absolute;
+    left: 5px;
+  }
+
+  i:nth-child(2) {
+    position: absolute;
+    right: 5px;
+  }
+}

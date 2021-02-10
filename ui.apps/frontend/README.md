@@ -15,6 +15,14 @@ npm start server
 open _http://localhost:3000_
 
 
+# Sling synchonization
 ```
-npm install --dev gulp-util
+npm run sync
+```
+
+
+
+Add develop dependencies by using
+```
+npm install --save-dev gulp-util
 ```

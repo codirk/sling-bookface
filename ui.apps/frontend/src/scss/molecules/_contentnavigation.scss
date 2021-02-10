@@ -1,3 +1,32 @@
 .contentnavigation {
   width: 20%;
+  height: 100vh;
+  position: relative;
+
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-weight: normal ;
+
+  }
+
+  h1 span {
+    text-transform: uppercase;
+  }
+
+  h1 i {
+    position: absolute;
+    right: 5px;
+  }
+
+  @import 'tabs';
+
+  i.fa-plus-circle{
+    color: #c12127;
+    font-size: 40px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
+
 }

@@ -1,3 +1,9 @@
-.content{
+.content {
   width: 80%;
+
+  @import 'title';
+  @import 'tabs';
+
+
+
 }
