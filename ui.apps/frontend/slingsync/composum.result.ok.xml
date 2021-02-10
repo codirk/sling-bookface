@@ -1,0 +1,18 @@
+<repo>
+    <response>
+        <data>
+            <package>
+                <group>aemsync</group>
+                <name>aemsync</name>
+                <version>null</version>
+                <downloadName>aemsync.zip</downloadName>
+                <size>7499</size>
+                <createdBy>AEM Synchronization Tool</createdBy>
+                <lastModifiedBy>null</lastModifiedBy>
+                <lastUnpacked>10.02.21 22:25</lastUnpacked>
+                <lastUnpackedBy>admin</lastUnpackedBy>
+            </package>
+        </data>
+        <status code="200">ok</status>
+    </response>
+</repo>

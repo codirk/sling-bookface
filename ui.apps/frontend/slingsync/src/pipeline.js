@@ -91,7 +91,7 @@ class Pipeline {
 
       if (res.ok) {
         const text = await res.text()
-        log.debug('Response text:')
+        log.debug(text)
         log.group()
         log.debug(text)
         log.groupEnd()
@@ -99,15 +99,22 @@ class Pipeline {
         // Handle errors with AEM response.
         try {
           const obj = await this._parseXml(text)
-          result.log = obj.crx.response.data.log
-          const errorLines = [...new Set(result.log.split('\n').filter(line => line.startsWith('E')))]
+          // result.log = obj.crx.response.data.log
+          var statuscode = obj.repo.response.status.code
+          log.debug(statuscode);
+          if( statuscode != 200) {
+            //TODO remove this line when the parser was fixed
+            console.log(text);
 
-          // Errors when installing selected nodes.
-          if (errorLines.length) {
-            result.err = new Error('Error installing nodes:\n' + errorLines.join('\n'))
-          // Error code in status.
-          } else if (obj.crx.response.status.code !== '200') {
-            result.err = new Error(obj.crx.response.status.textNode)
+            const errorLines = [...new Set(result.log.split('\n').filter(line => line.startsWith('E')))]
+
+            // Errors when installing selected nodes.
+            if (errorLines.length) {
+              result.err = new Error('Error installing nodes:\n' + errorLines.join('\n'))
+              // Error code in status.
+            } else if (obj.crx.response.status.code !== '200') {
+              result.err = new Error(obj.crx.response.status.textNode)
+            }
           }
         } catch (err) {
           // Unexpected response format.
