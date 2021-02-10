@@ -7,9 +7,8 @@
     "target": "/etc/clientlibs/sling-bookface"
   },
   "scripts": {
-    "maven:build:DDD": "echo 'Error: maven:build not iplemented for the moment' && exit 1",
     "maven:build": "echo 'called by maven' && npm run build && npm run maven:copyfiles",
-    "maven:copyfiles": "gulp --target=$TARGET",
+    "maven:copyfiles": "gulp",
     "build": "npm run clean:dist && npm run webpack",
     "clean": "npm run clean:dist && npm run clean:node_modules",
     "clean:dist": "rimraf dist",
