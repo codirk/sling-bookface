@@ -5,7 +5,7 @@
 
     <parent>
         <groupId>de.messetat.sling.platform.parent</groupId>
-        <artifactId>sling-parent-dependencies-scr</artifactId>
+        <artifactId>sling-parent-osgi</artifactId>
         <version>11-SNAPSHOT</version>
     </parent>
 
