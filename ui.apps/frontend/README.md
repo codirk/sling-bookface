@@ -26,3 +26,7 @@ Add develop dependencies by using
 ```
 npm install --save-dev gulp-util
 ```
+
+
+npm install -g .
+npm uninstall -g frontent
