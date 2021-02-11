@@ -4,7 +4,7 @@
   "description": "This is a webpack build for plain js,css and others as less, scss,...",
   "private": true,
   "config": {
-    "target": "/etc/clientlibs/sling-bookface"
+    "target": "/etc/clientlibs/sling-bookface/"
   },
   "scripts": {
     "maven:build": "echo 'called by maven' && npm run build && npm run maven:copyfiles",

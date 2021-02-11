@@ -25,8 +25,14 @@ define([
         function getModule(componentID, callback) {
             // REGISTER ALL COMPONENTS HERE !!
             switch (componentID) {
-             //   case 'dam.toggler':
-             //       return require(['../BBBeans/toggler.js'], callback);
+                //   case 'dam.toggler':
+                //       return require(['../BBBeans/toggler.js'], callback);
+                case  'bf.create-story':
+                    return require(['../BBBeans/create-story.js'], callback);
+                case  'bf.story-field':
+                    return require(['../BBBeans/story-field.js'], callback);
+                case  'bf.delete-story':
+                    return require(['../BBBeans/delete-story.js'], callback);
                 default:
                     //    return require(['./BBBeans/_BBTemplateBean'], callback);
                     return;

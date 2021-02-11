@@ -1,0 +1,31 @@
+<!--/*
+    <sly data-sly-use.tooltipTmpl="/apps/dam/components/templates/card/v1/card/card.html"
+         data-sly-call="${tooltipTmpl.tooltip @ text='Helge Strichen'}" >
+    </sly>
+*/-->
+<template data-sly-template.tooltip="${@ propertyLabel, placeholder, propertyName, resource}">
+    <h1>${propertyLabel}</h1>
+    <p>
+        ${properties[propertyName]} FFF <br/>
+        ${resource.path}
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+        et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </p>
+</template>
+
+
+
+<template data-sly-template.field="${@ propertyLabel, placeholder, propertyName, resource}">
+    <h1>${propertyLabel}</h1>
+    <!--
+     ${resource.path}
+    -->
+    <form data-component-name="bf.story-field" action="${resource.path}" method="post">
+        <textarea placeholder="${placeholder}" name="${propertyName}"  >${resource[propertyName]}</textarea>
+    </form>
+</template>
+
