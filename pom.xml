@@ -6,7 +6,7 @@
     <parent>
         <groupId>de.messetat.sling.platform.parent</groupId>
         <artifactId>sling-parent-osgi</artifactId>
-        <version>11-SNAPSHOT</version>
+        <version>10-SNAPSHOT</version>
     </parent>
 
     <groupId>de.messetat.sling.sling-bookface</groupId>

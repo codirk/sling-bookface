@@ -49,13 +49,13 @@
         <dependency>
             <groupId>de.messetat.sling.core.components</groupId>
             <artifactId>sling-core.components-bundle</artifactId>
-            <version>11-SNAPSHOT</version>
+            <version>10-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>de.messetat.sling.core.components</groupId>
             <artifactId>sling-core.components-bundle-src</artifactId>
-            <version>11-SNAPSHOT</version>
+            <version>10-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         -->
