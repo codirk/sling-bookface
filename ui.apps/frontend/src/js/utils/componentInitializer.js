@@ -37,6 +37,8 @@ define([
                     return require(['../BBBeans/message-dispatcher.js'], callback);
                 case  'bf.story-card':
                     return require(['../BBBeans/story-card.js'], callback);
+                case  'bf.content-navigation-toggler':
+                    return require(['../BBBeans/content-navigation-toggler.js'], callback);
                 default:
                     //    return require(['./BBBeans/_BBTemplateBean'], callback);
                     return;
