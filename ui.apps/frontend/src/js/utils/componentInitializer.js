@@ -33,6 +33,10 @@ define([
                     return require(['../BBBeans/story-field.js'], callback);
                 case  'bf.delete-story':
                     return require(['../BBBeans/delete-story.js'], callback);
+                case  'bf.message-dispatcher':
+                    return require(['../BBBeans/message-dispatcher.js'], callback);
+                case  'bf.story-card':
+                    return require(['../BBBeans/story-card.js'], callback);
                 default:
                     //    return require(['./BBBeans/_BBTemplateBean'], callback);
                     return;

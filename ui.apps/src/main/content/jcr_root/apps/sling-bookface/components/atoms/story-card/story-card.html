@@ -1,0 +1,11 @@
+<div class="story-card" >
+    <div data-component-name="bf.story-card">
+        <div><i class="fa fa-circle" aria-hidden="true"></i><a href="${resource.parent.path}.html${resource.path}">
+            ${properties['title']}</a> <i class="fa fa-times" aria-hidden="true" data-component-name="bf.delete-story"
+                                          data-path="${resource.path}"></i>
+        </div>
+        <div><i class="fa fa-calendar" aria-hidden="true"></i> ${'DD-MM-YYYY' @ format = properties['jcr:created']}
+            <sly data-sly-test="${properties.label}"><span>#</span> ${properties['label']}</sly>
+        </div>
+    </div>
+</div>
