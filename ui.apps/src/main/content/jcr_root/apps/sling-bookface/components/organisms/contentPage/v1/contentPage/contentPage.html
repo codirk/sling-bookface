@@ -44,18 +44,21 @@
     <div class="content">
         <h1 class="title"><i class="fa fa-bars" data-component-name="bf.content-navigation-toggler" aria-hidden="true"></i> The Master Cat <i class="fa fa-ellipsis-h"
                                                                             aria-hidden="true"></i></h1>
-        <div class="tabs">
+        <div class="tabs" data-component-name="bf.tab-switcher">
             <div class="tab">
-                <button class="active">Projekt</button>
-                <button>Charactere</button>
+                <button class="active" data-tab-name="project">Projekt</button>
+                <button data-tab-name="characters" >Charactere</button>
                 <button>Orte</button>
                 <button>Handlung</button>
                 <button>Szene</button>
                 <button>Statistiken</button>
             </div>
 
-            <div class="tabcontent">
+            <div class="tabcontent" name="project">
                   <sly data-sly-resource="${ @ resourceType='/apps/sling-bookface/components/atoms/storyDetails/story.html'}" />
+            </div>
+            <div class="tabcontent" name="characters" hidden>
+                characters
             </div>
 
         </div>
