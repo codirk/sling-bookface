@@ -36,8 +36,16 @@ define([
                    $('div',$element).removeClass("active");
                 }
             )
+            debugger;
             this.$element.toggleClass("active");
-            // alert('Hello Component Clicked')
+            history.pushState({}, null, this.$element.data('url'));
+            /*
+              or
+             window.history.replaceState(statedata, title, url);
+
+            TODO trigger the load of the content by using the messagebus
+            */
+
         }
 
     };

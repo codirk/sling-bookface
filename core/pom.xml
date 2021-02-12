@@ -16,14 +16,17 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.sling</groupId>
-                <artifactId>sling-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-scr-plugin</artifactId>
-            </plugin>
+            <!--
+                      <plugin>
+                          <groupId>org.apache.sling</groupId>
+                          <artifactId>sling-maven-plugin</artifactId>
+                      </plugin>
+                         <plugin>
+                          <groupId>org.apache.felix</groupId>
+                          <artifactId>maven-scr-plugin</artifactId>
+                      </plugin>
+                        -->
+
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -34,9 +37,40 @@
                         <Sling-Model-Packages>
                             de.messetat.bookface.core.models
                         </Sling-Model-Packages>
+
+                        <!--
+                        <Export-Package>de.messetat.bookface.core.services</Export-Package>
+                        <Export-Service>de.messetat.bookface.core.services.*</Export-Service>
+                        <Sling-Model-Packages>
+                            ${pom.groupId}.models,
+                            ${pom.groupId}.modelsexporter
+                        </Sling-Model-Packages>
+
+                        <Embed-Dependency>*</Embed-Dependency>
+
+                        <Private-Package>org.apache.felix.log.impl</Private-Package>
+                        <Bundle-Activator>${pom.groupId}.impl.Activator</Bundle-Activator>
+                        <Export-Service>org.osgi.service.log.LogService,org.osgi.service.log.LogReaderService</Export-Service>
+                        -->
+
                     </instructions>
                 </configuration>
             </plugin>
+            <!--
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <Import-Package>javax.inject;version=0.0.0,*</Import-Package>
+
+
+                       -->
+            <!--
+                    </instructions>
+                </configuration>
+            </plugin>
+            -->
         </plugins>
     </build>
 
