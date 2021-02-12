@@ -34,25 +34,22 @@ define([
         click() {
             $('input[name="created"]',this.$element).val(new Date());
 
-
-            // alert('Hello Component Clicked');
-           // debugger;
             $('form',this.$element) .ajaxForm(function() {
                 if(this.url.endsWith('/')){
                    // alert("New entry was created");
                     //TODO reload the story list only !
+                    //
                     location.reload();
                 }else {
-                  //  alert("Entry was updated.");
+                    //  alert("Entry was updated.");
                     location.reload();
                 }
             }).submit();;
         }
 
     };
+
     // PLACE YOUR CODE HERE
-
-
     class Factory {
     };
     Factory.prototype.create = function (...options) {

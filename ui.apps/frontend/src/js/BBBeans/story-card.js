@@ -36,7 +36,6 @@ define([
                    $('div',$element).removeClass("active");
                 }
             )
-            debugger;
             this.$element.toggleClass("active");
             history.pushState({}, null, this.$element.data('url'));
             /*
