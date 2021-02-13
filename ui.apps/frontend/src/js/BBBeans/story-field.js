@@ -38,9 +38,15 @@ define([
         save() {
             // alert('Hello Component Clicked');
            // debugger;
+            var me=this;
             this.$element.ajaxForm(function() {
-                logger.debug(`${this.url} done `)
-
+                logger.debug(`${this.url} done `);
+                var channelName=me.$element.data('channel');
+                var topic=me.$element.data('topic');
+                if(channelName && topic) {
+                    var channel = postal.channel(channelName);
+                    channel.publish(topic, {title: $('textarea', me.$element).val()});
+                }
             }).submit();;
         }
 

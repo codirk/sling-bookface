@@ -5,9 +5,8 @@
     <!--
     ${resource.path}
     -->
-
     <sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
-         data-sly-call="${template.textarea @  propertyLabel='Projekttitel', propertyName='title' , resource=model.suffixResource}" >
+         data-sly-call="${template.textarea @  propertyLabel='Projekttitel', placeholder='Describe yourself here...',propertyName='title', resource=model.suffixResource, channel='stories', topic='story-title.change' }" >
     </sly>
 
     <sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"

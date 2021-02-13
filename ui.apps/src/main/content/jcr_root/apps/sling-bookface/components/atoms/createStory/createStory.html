@@ -2,12 +2,25 @@
 
 <i class="fa fa-plus-circle" aria-hidden="true" ></i>
 
-<form hidden action="${resource.path}/" method="post">
 
+<sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
+     data-sly-call="${template.newEntryForm @
+        resource=resource,
+        nameHint='story',
+        propertyName='title',
+        propertyValue='new Story',
+        resourceType='/apps/sling-bookface/components/TODO'
+     }" >
+</sly>
+
+<!--/*
+<form hidden action="${resource.path}/" method="post">
     <input name=":nameHint" value="story" />
     <input name="title" value="new Story" />
     <input name="created">
 </form>
+*/-->
+
 </div>
 
 <!--/*

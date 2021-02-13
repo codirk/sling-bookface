@@ -27,27 +27,45 @@ define([
 
         initialize() {
             // register this instance to some event
-             this.$element.click($.proxy(this.click, this));
+            this.$element.click($.proxy(this.click, this));
+            this.channel = postal.channel('stories');
+            this.channel.subscribe("story.change", $.proxy(this.unsubscribe, this));
+            //TODO if this.suffix id this path
+            //             this.subscription = this.channel.subscribe('story-title.change', $.proxy(this.updateTitle, this));
         }
 
         click() {
-            $('.story-card',this.$element.parent().parent()).each(
-                function ($element){
-                   $('div',$element).removeClass("active");
+            $('.story-card', this.$element.parent().parent()).each(
+                function ($element) {
+                    $('div', $element).removeClass("active");
                 }
             )
             this.$element.toggleClass("active");
             history.pushState({}, null, this.$element.data('url'));
-            /*
-              or
-             window.history.replaceState(statedata, title, url);
+            this.channel.publish('story.change', {path: this.$element.data('path')});
+            this.subscription = this.channel.subscribe('story-title.change', $.proxy(this.updateTitle, this));
 
-            TODO trigger the load of the content by using the messagebus
-            */
+
+            /*
+         window.history.replaceState(statedata, title, url);
+         TODO trigger the load of the content by using the messagebus
+        */
 
         }
 
+        updateTitle(data){
+            $('a',this.$element).text(data.title);
+        }
+        unsubscribe(){
+            if(this.subscription) {
+                this.subscription.unsubscribe();
+            }
+
+        }
+
+
     };
+
     // PLACE YOUR CODE HERE
 
 

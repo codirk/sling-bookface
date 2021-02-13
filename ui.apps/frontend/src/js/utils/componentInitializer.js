@@ -26,7 +26,7 @@ define([
             // REGISTER ALL COMPONENTS HERE !!
             switch (componentID) {
                 case  'bf.tab-switcher':
-                    return require(['../BBBeans/tab-switcher.js'], callback);
+                    return require(['../commons/tab-switcher.js'], callback);
                 case  'bf.create-story':
                     return require(['../BBBeans/create-story.js'], callback);
                 case  'bf.story-field':
