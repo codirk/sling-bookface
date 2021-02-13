@@ -26,15 +26,19 @@ define([
         }
 
         initialize() {
+            this.path=this.$element.data('path');
             // register this instance to some event
             this.$element.click($.proxy(this.click, this));
             this.channel = postal.channel('stories');
+            this.channel.subscribe('story.change', $.proxy(this.storyChanged, this));
+
             this.channel.subscribe("story.change", $.proxy(this.unsubscribe, this));
             //TODO if this.suffix id this path
             //             this.subscription = this.channel.subscribe('story-title.change', $.proxy(this.updateTitle, this));
         }
 
-        click() {
+
+        setActive(){
             $('.story-card', this.$element.parent().parent()).each(
                 function ($element) {
                     $('div', $element).removeClass("active");
@@ -42,6 +46,10 @@ define([
             )
             this.$element.toggleClass("active");
             history.pushState({}, null, this.$element.data('url'));
+
+        }
+        click() {
+            this.setActive()
             this.channel.publish('story.change', {path: this.$element.data('path')});
             this.subscription = this.channel.subscribe('story-title.change', $.proxy(this.updateTitle, this));
 
@@ -53,14 +61,20 @@ define([
 
         }
 
-        updateTitle(data){
-            $('a',this.$element).text(data.title);
+        storyChanged(data) {
+            if(data.path == this.path){
+                this.setActive();
+            }
         }
-        unsubscribe(){
-            if(this.subscription) {
+
+        updateTitle(data) {
+            $('a', this.$element).text(data.title);
+        }
+
+        unsubscribe() {
+            if (this.subscription) {
                 this.subscription.unsubscribe();
             }
-
         }
 
 

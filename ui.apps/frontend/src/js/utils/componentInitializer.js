@@ -29,6 +29,8 @@ define([
                     return require(['../commons/tab-switcher.js'], callback);
                 case  'bf.create-story':
                     return require(['../BBBeans/create-story.js'], callback);
+                case  'bf.story':
+                    return require(['../BBBeans/story.js'], callback);
                 case  'bf.story-field':
                     return require(['../BBBeans/story-field.js'], callback);
                 case  'bf.delete-story':
@@ -79,7 +81,13 @@ define([
                         console.dir(e);
                         debugger;
                     }
-                );
+                ).then(
+                    function (){
+                        var channel = postal.channel('document');
+                        channel.publish('ready', {});
+                    }
+            );
+
         }
 
         function observer() {
