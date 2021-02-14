@@ -22,14 +22,14 @@
         <div class="tabs">
             <div class="tab">
                 <button class="active">${'all' @ i18n}</button>
+                <!--
                 <button>In Bearbeitung</button>
                 <button>erledigt</button>
+                -->
             </div>
 
             <div class="tabcontent" name="all">
-                <div data-sly-list="${resource.children}">
-                    <sly data-sly-resource="${item.path @ resourceType='/apps/sling-bookface/components/atoms/story-card/story-card.html'}"/>
-                </div>
+                <sly data-sly-resource="${'./stories'}" />
             </div>
             <div class="tabcontent" name="inProgress" style="display: none">
                 HIDDEN :-)
@@ -49,6 +49,16 @@
              data-sly-resource="${model.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/story/story.html'}"
         />
         */-->
+        <h1 class="title"><i class="fa fa-bars" data-component-name="bf.content-navigation-toggler"
+                             aria-hidden="true"></i>
+            <sly
+                    data-sly-test="${request.requestPathInfo.suffixResource}"
+
+                    data-sly-resource="${request.requestPathInfo.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/storyName/storyName.html'}"
+            />
+            <i class="fa fa-ellipsis-h"
+               aria-hidden="true"></i></h1>
+
 
         <sly
                 data-sly-test="${request.requestPathInfo.suffixResource}"

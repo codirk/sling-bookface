@@ -1,0 +1,15 @@
+<div    data-sly-use.model="de.messetat.bookface.core.models.UnwrapModel"
+        data-sly-list="${resource.children}"
+        data-component-name="bf.stories"
+        data-path="${resource.path}"
+        data-sly-unwrap="${model.unwrap}"
+>
+    <!--/*
+    TTT${request.attribute['test']}TTT
+    ${request.pathInfo}
+    ${resource.path}
+
+
+    */-->
+    <sly data-sly-resource="${item.path @ resourceType='/apps/sling-bookface/components/atoms/story-card/story-card.html'}"/>
+</div>

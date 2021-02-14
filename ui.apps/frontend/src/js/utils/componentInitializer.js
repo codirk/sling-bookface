@@ -27,6 +27,10 @@ define([
             switch (componentID) {
                 case  'bf.tab-switcher':
                     return require(['../commons/tab-switcher.js'], callback);
+                case  'bf.stories':
+                    return require(['../BBBeans/stories.js'], callback);
+                case  'bf.details':
+                    return require(['../BBBeans/details.js'], callback);
                 case  'bf.create-story':
                     return require(['../BBBeans/create-story.js'], callback);
                 case  'bf.story':
@@ -83,8 +87,11 @@ define([
                     }
                 ).then(
                     function (){
-                        var channel = postal.channel('document');
-                        channel.publish('ready', {});
+                        if(!$root) {
+                            /* $root will be set if its an ajax call*/
+                            var channel = postal.channel('document');
+                            channel.publish('ready', {});
+                        }
                     }
             );
 
@@ -127,11 +134,20 @@ define([
                 $element.html(htmlresponse);
                 initializeComponents($element);
             })
+        }
+
+        function ajaxReplaceWith(url, $element) {
+            logger.debug(`ajax call ${url}`)
+            $.get(url, function (htmlresponse) {
+                $element.ajaxReplaceWith(htmlresponse);
+                initializeComponents($element);
+            })
 
         }
 
         return {
             initializeComponents: initializeComponents,
+            ajaxReplaceWith: ajaxReplaceWith,
             ajax: ajax
         }
     }

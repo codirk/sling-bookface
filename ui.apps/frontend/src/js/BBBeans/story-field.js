@@ -45,7 +45,7 @@ define([
                 var topic=me.$element.data('topic');
                 if(channelName && topic) {
                     var channel = postal.channel(channelName);
-                    channel.publish(topic, {title: $('textarea', me.$element).val()});
+                    channel.publish(topic+me.$element.attr('action'), {title: $('textarea', me.$element).val()});
                 }
             }).submit();;
         }

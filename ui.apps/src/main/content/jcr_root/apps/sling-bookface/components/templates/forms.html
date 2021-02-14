@@ -9,7 +9,7 @@
 </sly>
 */-->
 <template data-sly-template.newEntryForm="${@ nameHint, propertyName, propertyValue, resourceType}">
-    <form hidden action="${resource.path}/" method="post" >
+    <form hidden action="${resource.path}/stories/" method="post" >
         <input name=":nameHint" value="${nameHint}" />
         <input name="${propertyName}" value="${propertyValue}" />
         <input name="sling:resourceType" value="${resourceType}">

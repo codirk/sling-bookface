@@ -30,9 +30,9 @@ define([
             // register this instance to some event
             this.$element.click($.proxy(this.click, this));
             this.channel = postal.channel('stories');
-            this.channel.subscribe('story.change', $.proxy(this.storyChanged, this));
+            this.channel.subscribe('story.inital.change', $.proxy(this.storyChanged, this));
 
-            this.channel.subscribe("story.change", $.proxy(this.unsubscribe, this));
+            // this.channel.subscribe("story.change", $.proxy(this.unsubscribe, this));
             //TODO if this.suffix id this path
             //             this.subscription = this.channel.subscribe('story-title.change', $.proxy(this.updateTitle, this));
         }
@@ -46,8 +46,7 @@ define([
             )
             this.$element.toggleClass("active");
             history.pushState({}, null, this.$element.data('url'));
-            this.subscription = this.channel.subscribe('story-title.change', $.proxy(this.updateTitle, this));
-
+            this.subscription = this.channel.subscribe('story-title.change'+this.$element.data('path'), $.proxy(this.updateTitle, this));
 
         }
         click() {

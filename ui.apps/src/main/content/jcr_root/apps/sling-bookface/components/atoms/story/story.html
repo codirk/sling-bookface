@@ -1,11 +1,6 @@
-<h1 class="title"><i class="fa fa-bars" data-component-name="bf.content-navigation-toggler"
-                     aria-hidden="true"></i>
-    <sly
-         data-sly-resource="${ @ resourceType='/apps/sling-bookface/components/atoms/storyName/storyName.html'}"
-    />
-    <i class="fa fa-ellipsis-h"
-       aria-hidden="true"></i></h1>
+
 <div class="tabs" data-component-name="bf.tab-switcher">
+
     <div class="tab">
         <button class="active" data-tab-name="project">Projekt</button>
         <button data-tab-name="characters">Charactere</button>
@@ -20,7 +15,7 @@
     </div>
     <div class="tabcontent" name="characters" hidden>
         <sly
-             data-sly-resource="${ @ resourceType='/apps/sling-bookface/components/atoms/storyDetails/characters.html'}"
+             data-sly-resource="${ @ resourceType='/apps/sling-bookface/components/atoms/story/characters/characters.html'}"
         />
 
     </div>

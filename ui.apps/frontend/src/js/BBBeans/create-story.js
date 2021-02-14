@@ -35,6 +35,10 @@ define([
             $('input[name="created"]',this.$element).val(new Date());
 
             $('form',this.$element) .ajaxForm(function() {
+debugger;
+                this.channel = postal.channel('stories');
+                this.channel.publish('update-stories', {});
+/*
                 if(this.url.endsWith('/')){
                    // alert("New entry was created");
                     //TODO reload the story list only !
@@ -44,6 +48,8 @@ define([
                     //  alert("Entry was updated.");
                     location.reload();
                 }
+
+ */
             }).submit();;
         }
 

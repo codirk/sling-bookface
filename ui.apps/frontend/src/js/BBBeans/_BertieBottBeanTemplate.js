@@ -12,9 +12,10 @@ define([
     "jquery",
     "utils/constants",
     "utils/logger",
-    'postal'
+    'postal',
+    "utils/componentInitializer"
     // ADD ALL NEEDED DEPENDENCIES HERE e.g. 'datatables.net' installed by npm install --save datatables.net
-], function (module, _, $, constants, logger, postal) {
+], function (module, _, $, constants, logger, postal, componentInitializer) {
 
     logger.debug(`Component ${module.id} loaded.`);
 
