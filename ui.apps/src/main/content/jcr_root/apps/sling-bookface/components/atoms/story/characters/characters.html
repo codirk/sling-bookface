@@ -4,7 +4,26 @@
     <div>
     CHARACTERS ${resource.path}
 
+        <!--/*
         <sly data-sly-include="/apps/sling-bookface/components/atoms/createStory/createStory.html"/>
+*/-->
+        <div data-component-name="bf.create-character">
+
+            <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+            <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+                 data-sly-call="${template.newEntryForm @
+            nameHint='character',
+            path='characters',
+
+            propertyName='title',
+            propertyValue='new Story',
+            resourceType='sling-bookface/components/atoms/character'
+         }" >
+            </sly>
+
+
+
+        </div>
 
     </div>
 

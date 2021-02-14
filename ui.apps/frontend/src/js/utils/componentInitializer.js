@@ -33,6 +33,8 @@ define([
                     return require(['../BBBeans/details.js'], callback);
                 case  'bf.create-story':
                     return require(['../BBBeans/create-story.js'], callback);
+                case  'bf.create-character':
+                    return require(['../BBBeans/create-character.js'], callback);
                 case  'bf.story':
                     return require(['../BBBeans/story.js'], callback);
                 case  'bf.story-field':

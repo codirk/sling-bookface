@@ -28,28 +28,30 @@ define([
 
         initialize() {
             // register this instance to some event
-             this.$element.click($.proxy(this.click, this));
+            this.$element.click($.proxy(this.click, this));
         }
 
         click() {
-            $('input[name="created"]',this.$element).val(new Date());
+            $('input[name="created"]', this.$element).val(new Date());
 
-            $('form',this.$element) .ajaxForm(function() {
+            $('form', this.$element).ajaxForm(function () {
+                /*
+                TODO update view
                 this.channel = postal.channel('stories');
                 this.channel.publish('update-stories', {});
-/*
-                if(this.url.endsWith('/')){
-                   // alert("New entry was created");
-                    //TODO reload the story list only !
-                    //
-                    location.reload();
-                }else {
-                    //  alert("Entry was updated.");
-                    location.reload();
-                }
+                 */
+            }).submit();
+            debugger;
 
- */
-            }).submit();;
+            var $form = $('<form>');
+            $form.attr('action', '/content/sling-bookface/stories/story/characters');
+            $form.attr('method', 'post');
+            //TODO set the resource type
+            var $input= $('<input>').attr('name','sling:resourceType').attr('value','/test/dummy');
+            $form.append($input);
+            $form.ajaxForm().submit();
+            $form.remove();
+
         }
 
     };
