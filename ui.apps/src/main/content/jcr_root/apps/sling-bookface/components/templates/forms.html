@@ -1,0 +1,36 @@
+<!--/*
+<sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+     data-sly-call="${template.newEntryForm @
+        nameHint='story',
+        propertyName='title',
+        propertyValue='new Story',
+        resourceType='/apps/sling-bookface/components/TODO'
+     }" >
+</sly>
+*/-->
+<template data-sly-template.newEntryForm="${@ nameHint, propertyName, propertyValue, resourceType}">
+    <form hidden action="${resource.path}/" method="post" >
+        <input name=":nameHint" value="${nameHint}" />
+        <input name="${propertyName}" value="${propertyValue}" />
+        <input name="sling:resourceType" value="${resourceType}">
+    </form>
+</template>
+
+<!--/*
+<sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+         data-sly-call="${template.textareaForm @
+            propertyLabel='Projekttitel',
+            placeholder='Describe yourself here...',
+            propertyName='title',
+            channel='stories',
+            topic='story-title.change'
+            }" >
+</sly>
+*/-->
+<template data-sly-template.textareaForm="${@ propertyLabel, placeholder, propertyName, channel, topic}">
+    <h1>${propertyLabel}</h1>
+    <form data-component-name="bf.story-field" data-channel="${channel}" data-topic="${topic}" action="${resource.path}" method="post">
+        <textarea placeholder="${placeholder}" name="${propertyName}"  >${resource[propertyName]}</textarea>
+    </form>
+</template>
+

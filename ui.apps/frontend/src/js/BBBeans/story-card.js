@@ -46,12 +46,13 @@ define([
             )
             this.$element.toggleClass("active");
             history.pushState({}, null, this.$element.data('url'));
+            this.subscription = this.channel.subscribe('story-title.change', $.proxy(this.updateTitle, this));
+
 
         }
         click() {
             this.setActive()
             this.channel.publish('story.change', {path: this.$element.data('path')});
-            this.subscription = this.channel.subscribe('story-title.change', $.proxy(this.updateTitle, this));
 
 
             /*

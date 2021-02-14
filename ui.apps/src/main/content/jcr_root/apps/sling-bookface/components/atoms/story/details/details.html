@@ -2,31 +2,31 @@
     <!--
     ${resource.path}
     -->
-    <sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
-         data-sly-call="${template.textarea @  propertyLabel='Projekttitel', placeholder='Describe yourself here...',propertyName='title', resource=resource, channel='stories', topic='story-title.change' }" >
+    <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+         data-sly-call="${template.textareaForm @  propertyLabel='Projekttitel', placeholder='Describe yourself here...',propertyName='title', resource=resource, channel='stories', topic='story-title.change' }" >
     </sly>
 
-    <sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
-         data-sly-call="${template.textarea @  propertyLabel='Fortschritt', placeholder='Describe yourself here...', propertyName='progress' , resource=resource}" >
+    <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+         data-sly-call="${template.textareaForm @  propertyLabel='Fortschritt', placeholder='Describe yourself here...', propertyName='progress' , resource=resource}" >
     </sly>
 
-    <sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
-         data-sly-call="${template.textarea @  propertyLabel='Projektetiketts', placeholder='Describe yourself here...', propertyName='label' , resource=resource}" >
+    <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+         data-sly-call="${template.textareaForm @  propertyLabel='Projektetiketts', placeholder='Describe yourself here...', propertyName='label' , resource=resource}" >
     </sly>
 
-    <sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
-         data-sly-call="${template.textarea @  propertyLabel='Geschichte/Prämisse', placeholder='Describe yourself here...', propertyName='story' , resource=resource}" >
+    <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+         data-sly-call="${template.textareaForm @  propertyLabel='Geschichte/Prämisse', placeholder='Describe yourself here...', propertyName='story' , resource=resource}" >
     </sly>
 
-    <sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
-         data-sly-call="${template.textarea @  propertyLabel='Thema und Materie', placeholder='Describe yourself here...', propertyName='topic' , resource=resource}" >
+    <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+         data-sly-call="${template.textareaForm @  propertyLabel='Thema und Materie', placeholder='Describe yourself here...', propertyName='topic' , resource=resource}" >
     </sly>
 
-    <sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
-         data-sly-call="${template.textarea @  propertyLabel='Genre', placeholder='Describe yourself here...', propertyName='genre' , resource=resource}" >
+    <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+         data-sly-call="${template.textareaForm @  propertyLabel='Genre', placeholder='Describe yourself here...', propertyName='genre' , resource=resource}" >
     </sly>
 
-    <sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
-         data-sly-call="${template.textarea @  propertyLabel='Synopsis/Zusammenfassung', placeholder='Describe yourself here...', propertyName='synopsis' , resource=resource}" >
+    <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+         data-sly-call="${template.textareaForm @  propertyLabel='Synopsis/Zusammenfassung', placeholder='Describe yourself here...', propertyName='synopsis' , resource=resource}" >
     </sly>
 </div>

@@ -43,11 +43,17 @@
 
     <div class="content">
 
+        <!--/*
         <sly data-sly-use.model="de.messetat.bookface.core.models.StoryModel"
              data-sly-test="${model.suffixResource}"
              data-sly-resource="${model.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/story/story.html'}"
         />
+        */-->
 
+        <sly
+                data-sly-test="${request.requestPathInfo.suffixResource}"
+                data-sly-resource="${request.requestPathInfo.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/story/story.html'}"
+        />
     </div>
 
 

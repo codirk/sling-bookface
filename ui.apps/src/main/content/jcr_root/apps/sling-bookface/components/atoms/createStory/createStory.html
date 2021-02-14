@@ -1,17 +1,14 @@
 <div data-component-name="bf.create-story">
 
-<i class="fa fa-plus-circle" aria-hidden="true" ></i>
-
-
-<sly data-sly-use.template="/apps/sling-bookface/components/atoms/storyDetails/template/storyField.html"
-     data-sly-call="${template.newEntryForm @
-        resource=resource,
-        nameHint='story',
-        propertyName='title',
-        propertyValue='new Story',
-        resourceType='/apps/sling-bookface/components/TODO'
-     }" >
-</sly>
+    <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+    <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+         data-sly-call="${template.newEntryForm @
+            nameHint='story',
+            propertyName='title',
+            propertyValue='new Story',
+            resourceType='/apps/sling-bookface/components/TODO'
+         }" >
+    </sly>
 
 <!--/*
 <form hidden action="${resource.path}/" method="post">
