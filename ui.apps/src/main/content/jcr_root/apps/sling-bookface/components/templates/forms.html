@@ -14,7 +14,7 @@
         <input name="${propertyName}" value="${propertyValue}" />
         <input name="sling:resourceType" value="${resourceType}">
     </form>
-    <form name="containerResource" action='${resource.path}/${path}'
+    <form name="containerResource" hidden action='${resource.path}/${path}'
           method='post'
           data-sly-use.hasChild="${ '/apps/sling-bookface/components/templates/hasChild.js' @ resource=resource, path=path }"
           data-sly-test="${!hasChild}" >

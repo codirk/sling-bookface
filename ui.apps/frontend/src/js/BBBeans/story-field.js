@@ -46,6 +46,9 @@ define([
                 if(channelName && topic) {
                     var channel = postal.channel(channelName);
                     channel.publish(topic+me.$element.attr('action'), {title: $('textarea', me.$element).val()});
+                }else{
+                    var channel = postal.channel('resource-update');
+                    channel.publish(me.$element.attr('action'), {});
                 }
             }).submit();;
         }

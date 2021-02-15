@@ -1,33 +1,29 @@
-
-
 <div class="characters" >
     <div>
-        <ul data-component-name="bf.characters" data-path="${resource.path}/characters">
-            <sly data-sly-resource="${'./characters'}"
+        <ul data-component-name="bf.character-listview" data-path="${resource.path}/characters">
+            <sly data-sly-resource="${'./characters' @ selectors='listview' }"
                  data-sly-test="${resource['characters/jcr:primaryType']}" />
         </ul>
-
         <!--/*
-        <sly data-sly-include="/apps/sling-bookface/components/atoms/createStory/createStory.html"/>
-*/-->
-        <div data-component-name="bf.create-character" data-path="${resource.path}/characters">
-
+            <sly data-sly-include="/apps/sling-bookface/components/atoms/createStory/createStory.html"/>
+        */-->
+        <div data-component-name="bf.character-create" data-path="${resource.path}/characters">
             <i class="fa fa-plus-circle" aria-hidden="true" ></i>
             <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
                  data-sly-call="${template.newEntryForm @
-            nameHint='character',
-            path='characters',
+                                    nameHint='character',
+                                    path='characters',
 
-            propertyName='title',
-            propertyValue='new Story',
-            resourceType='sling-bookface/components/atoms/character',
-            containerResourceType='sling-bookface/components/atoms/characters'
-            }" >
+                                    propertyName='character-name',
+                                    propertyValue='new character',
+                                    resourceType='sling-bookface/components/atoms/story/characters',
+                                    containerResourceType='sling-bookface/components/atoms/story/characters'
+                                }" >
             </sly>
         </div>
     </div>
 
-    <div>
-        CHARACTERS DETAILS
+    <div data-component-name="bf.character-details">
+        no item selected
     </div>
 </div>

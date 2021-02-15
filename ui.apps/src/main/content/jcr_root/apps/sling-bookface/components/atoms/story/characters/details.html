@@ -1,0 +1,11 @@
+<!--
+details resource path: ${resource.path}
+-->
+<sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+     data-sly-call="${template.textareaForm @  propertyLabel='Name', placeholder='Describe here...', propertyName='character-name' }" >
+</sly>
+
+<sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+     data-sly-call="${template.textareaForm @  propertyLabel='Beschreibung', placeholder='Describe here...', propertyName='description'}" >
+</sly>
+
