@@ -29,13 +29,26 @@ define([
 
         initialize() {
             this.$element.click($.proxy(this.click, this));
+            var channel = postal.channel('item-deleted');
+            channel.subscribe(this.$element.data('path'), $.proxy(this.delete, this));
+
         }
 
-        click(){
-            var channel = postal.channel('item-selected');
-            channel.publish(this.$element.data('path'), { path: this.$element.data('path')} );
+        delete() {
+            this.$element.fadeOut("slow", function (){
+                $(this).remove();
+            });
         }
 
+        click(event) {
+            if(event && $(event.target).data('component-name')=='bf.delete-resource'){
+                logger.debug('nothing 2 do :-)');
+                // TODO publish no item selected
+            }else {
+                var channel = postal.channel('item-selected');
+                channel.publish(this.$element.data('path'), {path: this.$element.data('path')});
+            }
+        }
 
 
     };

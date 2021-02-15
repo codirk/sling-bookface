@@ -33,9 +33,16 @@ define([
         }
 
         click() {
-            $.post( this.$element.data('path'), { ':operation': "delete" } );
-            location.reload();
-            // alert('Hello Component Clicked')
+            $.post(this.$element.data('path'), { ':operation': "delete" } );
+
+            var channel = postal.channel('item-deleted');
+            channel.publish(this.$element.data('path'), {});
+
+
+
+
+            // location.reload();
+            //TODO send message to messagebus
         }
 
     };

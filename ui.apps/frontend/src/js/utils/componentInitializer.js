@@ -25,6 +25,8 @@ define([
         function getModule(componentID, callback) {
             // REGISTER ALL COMPONENTS HERE !!
             switch (componentID) {
+                case  'bf.delete-resource':
+                    return require(['../commons/delete-resource.js'], callback);
                 case  'bf.tab-switcher':
                     return require(['../commons/tab-switcher.js'], callback);
                 case  'bf.stories':
@@ -47,8 +49,6 @@ define([
                     return require(['../BBBeans/story.js'], callback);
                 case  'bf.story-field':
                     return require(['../BBBeans/story-field.js'], callback);
-                case  'bf.delete-story':
-                    return require(['../BBBeans/delete-story.js'], callback);
                 case  'bf.message-dispatcher':
                     return require(['../BBBeans/message-dispatcher.js'], callback);
                 case  'bf.story-card':
