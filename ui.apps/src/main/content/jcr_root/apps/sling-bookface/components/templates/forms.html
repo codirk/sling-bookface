@@ -8,12 +8,17 @@
      }" >
 </sly>
 */-->
-<template data-sly-template.newEntryForm="${@ nameHint, propertyName, propertyValue, resourceType, path}">
-    <!-- ${path} -->
-    <form hidden action="${resource.path}/${path}/" method="post" >
+<template data-sly-template.newEntryForm="${@ nameHint, propertyName, propertyValue, resourceType, path, containerResourceType}">
+    <form name="newResource" hidden action="${resource.path}/${path}/" method="post" >
         <input name=":nameHint" value="${nameHint}" />
         <input name="${propertyName}" value="${propertyValue}" />
         <input name="sling:resourceType" value="${resourceType}">
+    </form>
+    <form name="containerResource" action='${resource.path}/${path}'
+          method='post'
+          data-sly-use.hasChild="${ '/apps/sling-bookface/components/templates/hasChild.js' @ resource=resource, path=path }"
+          data-sly-test="${!hasChild}" >
+        <input name='sling:resourceType' value='${containerResourceType}' />
     </form>
 </template>
 

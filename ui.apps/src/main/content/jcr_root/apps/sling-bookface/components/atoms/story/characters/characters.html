@@ -2,12 +2,15 @@
 
 <div class="characters" >
     <div>
-    CHARACTERS ${resource.path}
+        <ul data-component-name="bf.characters" data-path="${resource.path}/characters">
+            <sly data-sly-resource="${'./characters'}"
+                 data-sly-test="${resource['characters/jcr:primaryType']}" />
+        </ul>
 
         <!--/*
         <sly data-sly-include="/apps/sling-bookface/components/atoms/createStory/createStory.html"/>
 */-->
-        <div data-component-name="bf.create-character">
+        <div data-component-name="bf.create-character" data-path="${resource.path}/characters">
 
             <i class="fa fa-plus-circle" aria-hidden="true" ></i>
             <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
@@ -17,14 +20,11 @@
 
             propertyName='title',
             propertyValue='new Story',
-            resourceType='sling-bookface/components/atoms/character'
-         }" >
+            resourceType='sling-bookface/components/atoms/character',
+            containerResourceType='sling-bookface/components/atoms/characters'
+            }" >
             </sly>
-
-
-
         </div>
-
     </div>
 
     <div>

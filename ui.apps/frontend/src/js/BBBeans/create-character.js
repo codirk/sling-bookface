@@ -34,23 +34,24 @@ define([
         click() {
             $('input[name="created"]', this.$element).val(new Date());
 
-            $('form', this.$element).ajaxForm(function () {
-                /*
-                TODO update view
-                this.channel = postal.channel('stories');
-                this.channel.publish('update-stories', {});
-                 */
-            }).submit();
-            debugger;
+            $('form[name="containerResource"]', this.$element).ajaxForm().submit();
 
+            var me = this;
+
+            $('form[name="newResource"]', this.$element).ajaxForm(function () {
+                var channel = postal.channel('resource-update');
+                channel.publish(me.$element.data('path'), {});
+            }).submit();
+
+            /*
             var $form = $('<form>');
             $form.attr('action', '/content/sling-bookface/stories/story/characters');
             $form.attr('method', 'post');
-            //TODO set the resource type
             var $input= $('<input>').attr('name','sling:resourceType').attr('value','/test/dummy');
             $form.append($input);
             $form.ajaxForm().submit();
             $form.remove();
+            */
 
         }
 

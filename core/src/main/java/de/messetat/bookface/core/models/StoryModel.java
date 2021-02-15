@@ -30,7 +30,6 @@ public class StoryModel {
     public void init() {
         LOG.debug("init");
         Locale currentLocale = Locale.GERMAN;
-
         if(i18nProvider != null) {
             ResourceBundle bundle = i18nProvider.getResourceBundle(currentLocale);
             String localizationMessage = bundle.getString("color");

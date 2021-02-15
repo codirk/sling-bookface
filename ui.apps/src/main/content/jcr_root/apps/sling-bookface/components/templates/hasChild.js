@@ -1,0 +1,1 @@
+use(function (){return this.resource.getChild(this.path) != null ;})
