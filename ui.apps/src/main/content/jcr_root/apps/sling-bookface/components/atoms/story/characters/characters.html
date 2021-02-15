@@ -1,7 +1,7 @@
 <div class="characters" >
     <div>
         <ul data-component-name="bf.character-listview" data-path="${resource.path}/characters">
-            <sly data-sly-resource="${'./characters' @ selectors='listview' }"
+            <sly data-sly-resource="${'./characters' @ selectors='listview', resourceType='sling-bookface/components/atoms/story/characters' }"
                  data-sly-test="${resource['characters/jcr:primaryType']}" />
         </ul>
         <!--/*
