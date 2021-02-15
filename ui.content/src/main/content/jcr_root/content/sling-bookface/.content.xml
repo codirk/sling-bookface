@@ -6,8 +6,9 @@
 
           sling:resourceType="sling-bookface/components/organisms/contentPage/v1/contentPage"
 >
+    <!--
 <stories  jcr:primaryType="sling:OrderedFolder"
-          sling:resourceType="sling-bookface/components/organisms/stories/v1/stories"
+          sling:resourceType="sling-bookface/components/organisms/stories/v1/stories" />
+-->
 
-/>
 </jcr:root>

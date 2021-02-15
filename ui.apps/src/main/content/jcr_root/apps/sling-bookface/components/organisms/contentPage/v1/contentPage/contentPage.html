@@ -31,7 +31,8 @@
             </div>
 
             <div class="tabcontent" name="all">
-                <sly data-sly-resource="${'./stories'}" />
+                <sly data-sly-resource="${'./stories'}"
+                     data-sly-test="${resource['stories/jcr:primaryType']}" />
             </div>
         </div>
 
@@ -43,12 +44,14 @@
             <i class="fa fa-plus-circle" aria-hidden="true" ></i>
             <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
                  data-sly-call="${template.newEntryForm @
-            nameHint='story',
-            path='stories',
-            propertyName='title',
-            propertyValue='new Story',
-            resourceType='sling-bookface/components/atoms/story'
-         }" >
+                                    nameHint='story',
+                                    path='stories',
+                                    propertyName='title',
+                                    propertyValue='new Story',
+                                    resourceType='sling-bookface/components/atoms/story',
+
+                                    containerResourceType='sling-bookface/components/organisms/stories/v1/stories'
+                                 }" >
             </sly>
             <!--/*
                 <form hidden action="${resource.path}/" method="post">
