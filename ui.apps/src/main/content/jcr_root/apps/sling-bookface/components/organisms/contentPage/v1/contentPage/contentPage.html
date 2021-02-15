@@ -7,9 +7,11 @@
 
     <link rel="stylesheet" href="/etc/clientlibs/sling-bookface/scss/style_sass.css"/>
     <link rel="stylesheet" href="/etc/clientlibs/sling-bookface/scss/style_sass_libs.css"/>
+    <!--
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    -->
 </head>
+
 <body>
 <!--
 <p>Sehen Sie sich den Quellcode dieser Seite an.<kbd>(Kontextmenu: Seitenquelltext anzeigen)</kbd></p>
@@ -31,14 +33,31 @@
             <div class="tabcontent" name="all">
                 <sly data-sly-resource="${'./stories'}" />
             </div>
-            <div class="tabcontent" name="inProgress" style="display: none">
-                HIDDEN :-)
-            </div>
-            <div class="tabcontent" name="done" style="display: none">
-                HIDDEN :-)
-            </div>
         </div>
+
+        <!--/*
+        TODO move to own file when refactoring is done
         <sly data-sly-include="/apps/sling-bookface/components/atoms/createStory/createStory.html"/>
+        /*-->
+        <div data-component-name="bf.create-story">
+            <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+            <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+                 data-sly-call="${template.newEntryForm @
+            nameHint='story',
+            path='stories',
+            propertyName='title',
+            propertyValue='new Story',
+            resourceType='sling-bookface/components/atoms/story'
+         }" >
+            </sly>
+            <!--/*
+                <form hidden action="${resource.path}/" method="post">
+                    <input name=":nameHint" value="story" />
+                    <input name="title" value="new Story" />
+                    <input name="created">
+                </form>
+            */-->
+        </div>
     </div>
 
     <div class="content">
