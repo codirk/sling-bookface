@@ -33,7 +33,7 @@ define([
         }
 
         update(data){
-            componentInitializer.ajax(this.$element.data('path')+'.listview.html', this.$element);
+            componentInitializer.ajax(this.$element.data('path')+'.itemlist.html', this.$element);
         }
 
 

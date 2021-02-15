@@ -35,13 +35,24 @@ define([
             }
 
             channel.subscribe('*', $.proxy(this.update, this));
+
+            var channel = postal.channel('item-deleted');
+            channel.subscribe('update-details', $.proxy(this.delete, this));
+        }
+
+        delete(data) {
+            if (data.path == this.$element.data('path')) {
+                // delete all children
+                $('*', this.$element).fadeOut("slow", function () {
+                    $(this).remove();
+                });
+            }
         }
 
         update(data) {
-            componentInitializer.ajax(data.path + '.details.html', this.$element);
+            componentInitializer.ajax(data.path + '.html', this.$element);
+            this.$element.data('path', data.path);
         }
-
-
     };
 
     // PLACE YOUR CODE HERE

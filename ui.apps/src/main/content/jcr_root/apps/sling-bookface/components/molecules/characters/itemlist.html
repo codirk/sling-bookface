@@ -3,6 +3,6 @@ Listview resource path: ${resource.path}
 -->
 <sly data-sly-list="${resource.children}">
     <li data-component-name="bf.character-listitem" data-path="${item.path}">
-        <sly data-sly-resource="${item @ resourceType='sling-bookface/components/atoms/story/characters/card'}" />
+        <sly data-sly-resource="${item @ resourceType='sling-bookface/components/atoms/character/card'}" />
     </li>
 </sly>

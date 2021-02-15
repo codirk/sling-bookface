@@ -1,7 +1,7 @@
 <div class="characters" >
     <div>
         <ul data-component-name="bf.character-listview" data-path="${resource.path}/characters">
-            <sly data-sly-resource="${'./characters' @ selectors='listview', resourceType='sling-bookface/components/atoms/story/characters' }"
+            <sly data-sly-resource="${'./characters' @ selectors='itemlist', resourceType='sling-bookface/components/molecules/characters' }"
                  data-sly-test="${resource['characters/jcr:primaryType']}" />
         </ul>
         <!--/*
@@ -16,8 +16,9 @@
 
                                     propertyName='character-name',
                                     propertyValue='new character',
-                                    resourceType='sling-bookface/components/atoms/story/characters',
-                                    containerResourceType='sling-bookface/components/atoms/story/characters'
+                                    resourceType='sling-bookface/components/atoms/character',
+
+                                    containerResourceType='sling-bookface/components/molecules/characters'
                                 }" >
             </sly>
         </div>
