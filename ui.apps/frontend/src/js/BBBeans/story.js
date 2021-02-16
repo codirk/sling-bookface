@@ -12,9 +12,10 @@ define([
     "jquery",
     "utils/constants",
     "utils/logger",
-    'postal'
+    'postal',
+    "utils/componentInitializer"
     // ADD ALL NEEDED DEPENDENCIES HERE e.g. 'datatables.net' installed by npm install --save datatables.net
-], function (module, _, $, constants, logger, postal) {
+], function (module, _, $, constants, logger, postal, componentInitializer) {
 
     logger.debug(`Component ${module.id} loaded.`);
 
@@ -26,28 +27,33 @@ define([
         }
 
         initialize() {
-            // register this instance to some event
-            // this.$element.click($.proxy(this.click, this));
-            this.path = this.$element.data('path');
-            //postal.subscribe('document.ready',$.proxy(this.currentPath, this))
-            var channel = postal.channel('document');
-            channel.subscribe('ready', $.proxy(this.currentPath, this));
-            /*
-            this.channel = postal.channel('stories');
-            this.channel.subscribe('story.change', $.proxy(this.storyChanged, this));
+            var channel = postal.channel('stories');
+            // TODO implement deeplink funtionality by suffix resource or by anchor hash
+            if (this.$element.data('path')) {
+                channel.subscribe(this.$element.data('path'), $.proxy(this.update, this));
+            }
 
-             */
+            channel.subscribe('story.change', $.proxy(this.update, this));
+
+            var channel = postal.channel('item-deleted');
+            channel.subscribe('update-details', $.proxy(this.delete, this));
 
         }
 
+        delete(data) {
+            if (data.path == this.$element.data('path')) {
+                // delete all children
+                $('*', this.$element).fadeOut("slow", function () {
+                    $(this).remove();
+                });
+            }
+        }
 
-        currentPath() {
-            this.channel = postal.channel('stories');
-            this.channel.publish('story.inital.change', {path: this.$element.data('path')});
+        update(data) {
+            componentInitializer.ajax(data.path + '.html', this.$element);
         }
 
     };
-
     // PLACE YOUR CODE HERE
 
 

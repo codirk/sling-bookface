@@ -13,6 +13,14 @@
 </head>
 
 <body>
+
+TODO hide this element
+<sly data-sly-include="/apps/sling-bookface/components/atoms/suffix-resource/suffix-resource.html" />
+
+<!--/*
+<sly
+        data-sly-resource="${request.requestPathInfo.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/storyName/storyName.html'}"
+/>*/-->
 <!--
 <p>Sehen Sie sich den Quellcode dieser Seite an.<kbd>(Kontextmenu: Seitenquelltext anzeigen)</kbd></p>
 -->
@@ -74,20 +82,29 @@
         <h1 class="title"><i class="fa fa-bars" data-component-name="bf.content-navigation-toggler"
                              aria-hidden="true"></i>
 
+            <!--/*
             <sly
                     data-sly-test="${request.requestPathInfo.suffixResource}"
                     data-sly-resource="${request.requestPathInfo.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/storyName/storyName.html'}"
-            />
+            />*/-->
 
             <i class="fa fa-ellipsis-h"
                aria-hidden="true"></i></h1>
 
 
         <!-- existing container div needed to update the content when clicking on the navigation -->
+
+        <!--/*
         <sly
                 data-sly-test="${request.requestPathInfo.suffixResource}"
                 data-sly-resource="${request.requestPathInfo.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/story/story.html'}"
         />
+        */-->
+
+
+        <div data-component-name="bf.story">
+            no item selected
+        </div>
     </div>
 
 

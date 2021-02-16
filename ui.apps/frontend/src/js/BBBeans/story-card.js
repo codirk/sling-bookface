@@ -12,9 +12,10 @@ define([
     "jquery",
     "utils/constants",
     "utils/logger",
-    'postal'
+    'postal',
+    "utils/componentInitializer"
     // ADD ALL NEEDED DEPENDENCIES HERE e.g. 'datatables.net' installed by npm install --save datatables.net
-], function (module, _, $, constants, logger, postal) {
+], function (module, _, $, constants, logger, postal, componentInitializer) {
 
     logger.debug(`Component ${module.id} loaded.`);
 
@@ -39,25 +40,30 @@ define([
 
 
         setActive(){
-            $('.story-card', this.$element.parent().parent()).each(
+            $('.active', this.$element.parent().parent()).each(
                 function ($element) {
                     $('div', $element).removeClass("active");
                 }
             )
             this.$element.toggleClass("active");
             history.pushState({}, null, this.$element.data('url'));
-            this.subscription = this.channel.subscribe('story-title.change'+this.$element.data('path'), $.proxy(this.updateTitle, this));
+            /*
+               window.history.replaceState(statedata, title, url);
+             */
+
+            this.channel.publish('story.change', {path: this.$element.data('path')});
+
+//            this.subscription = this.channel.subscribe('story-title.change'+this.$element.data('path'), $.proxy(this.updateTitle, this));
+            var channel = postal.channel('resource-update');
+            channel.subscribe(this.$element.data('path'),  $.proxy(this.update, this));
+
 
         }
         click() {
-            this.setActive()
-            this.channel.publish('story.change', {path: this.$element.data('path')});
+            this.setActive();
 
 
-            /*
-         window.history.replaceState(statedata, title, url);
-         TODO trigger the load of the content by using the messagebus
-        */
+
 
         }
 
@@ -65,6 +71,10 @@ define([
             if(data.path == this.path){
                 this.setActive();
             }
+        }
+
+        update(data){
+            componentInitializer.ajax(this.$element.data('path')+'.card.card-content.html', this.$element);
         }
 
         updateTitle(data) {

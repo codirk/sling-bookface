@@ -1,12 +1,10 @@
 <div  class="storyDetails"
-        data-sly-use.model="de.messetat.bookface.core.models.UnwrapModel"
         data-component-name="bf.details"
         data-path="${resource.path}"
-
-      data-sly-unwrap="${model.unwrap}"
-
 >
     <!--
+        data-sly-use.model="de.messetat.bookface.core.models.UnwrapModel"
+    data-sly-unwrap="${model.unwrap}"
 
     -->
 
@@ -14,7 +12,7 @@
     ${resource.path}
     -->
     <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
-         data-sly-call="${template.textareaForm @  propertyLabel='Projekttitel', placeholder='Describe yourself here...',propertyName='title', resource=resource, channel='stories', topic='story-title.change' }" >
+         data-sly-call="${template.textareaForm @  propertyLabel='Projekttitel', placeholder='Describe yourself here...',propertyName='title', resource=resource }" >
     </sly>
 
     <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
