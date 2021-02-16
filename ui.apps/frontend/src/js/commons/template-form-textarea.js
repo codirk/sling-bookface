@@ -27,12 +27,11 @@ define([
         }
 
         initialize() {
-           // $('input', this.$element).blur($.proxy(this.save, this));
-            // register this instance to some event
-            //  ${'input', this.$element);
-            //                 .click($.proxy(this.click, this));
-            $('textarea', this.$element).on('input', this.autoExpand);
-            $('textarea', this.$element).blur($.proxy(this.save, this));
+            var $textarea=$('textarea', this.$element);
+            $textarea.on('input', this.autoExpand);
+            $textarea.blur($.proxy(this.save, this));
+            $textarea.on('touchleave touchcancel', $.proxy(this.save, this));
+            this.autoExpand.call($textarea[0]); //call autoexpand with the scope of the textarea
         }
 
         save() {
