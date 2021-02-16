@@ -30,6 +30,7 @@ define([
             var channel = postal.channel('rightcontent');
             channel.subscribe('toggle',  $.proxy(this.toggle, this));
             channel.subscribe('hide',  $.proxy(this.hide, this));
+            channel.subscribe('show',  $.proxy(this.show, this));
         }
 
         toggle() {
@@ -38,6 +39,9 @@ define([
 
         hide() {
             this.$element.fadeOut('fast');
+        }
+        show() {
+            this.$element.fadeIn('fast');
         }
 
     };

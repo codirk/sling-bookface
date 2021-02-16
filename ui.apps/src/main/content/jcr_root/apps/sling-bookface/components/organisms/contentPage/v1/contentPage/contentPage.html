@@ -21,14 +21,14 @@
     <div class="leftcontent" data-component-name="bf.leftcontent">
         <h1><span>Projekte</span><i class="fa fa-cog" aria-hidden="true"></i></h1>
         <div class="tabs">
+            <!--
             <div class="tab">
                 <button class="active">${'all' @ i18n}</button>
-                <!--
                 <button>In Bearbeitung</button>
                 <button>erledigt</button>
-                -->
-            </div>
 
+            </div>
+            -->
             <div class="tabcontent" name="all">
                 <sly data-sly-resource="${'./stories'}"
                      data-sly-test="${resource['stories/jcr:primaryType']}"/>
@@ -67,11 +67,12 @@
         </h1>
 
         <div data-component-name="bf.details" data-path="${resource.path}/stories">
-            no item selected
+            <!-- no item selected -->
         </div>
     </div>
 
-    <div class="rightcontent" data-component-name="bf.rightcontent" >
+    <div class="rightcontent" data-component-name="bf.rightcontent" hidden >
+        <!--
         <h1 class="title">
             <i class="fa fa-bars"
                data-component-name="bf.content-navigation-toggler"
@@ -81,6 +82,7 @@
             <i class="fa fa-ellipsis-h"
                aria-hidden="true"></i>
         </h1>
+        -->
 
         <div class="details" data-component-name="bf.details" data-messagebus-subscribe="characters">
             <!--/* data-path="${resource.path}/characters" */-->
