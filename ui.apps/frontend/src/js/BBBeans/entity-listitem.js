@@ -62,6 +62,16 @@ define([
                 history.pushState({}, null, this.$element.data('url'));
                 /* window.history.replaceState(statedata, title, url); */
             }
+
+            var channel = postal.channel('item-selected');
+            if (this.$element.data('messagebus-publish')) {
+                channel.publish(this.$element.data('messagebus-publish'), {path: this.$element.data('path')});
+
+                postal.channel('leftcontent').publish('hide');
+                postal.channel('rightcontent').publish('show');
+            } else {
+                channel.publish(this.$element.parent().data('path'), {path: this.$element.data('path')});
+            }
         }
 
         click(event) {
@@ -70,15 +80,7 @@ define([
                 channel.publish('update-details', {path: this.$element.data('path')})
             } else {
                 this.setActive();
-                var channel = postal.channel('item-selected');
-                if (this.$element.data('messagebus-publish')) {
-                    channel.publish(this.$element.data('messagebus-publish'), {path: this.$element.data('path')});
 
-                    postal.channel('leftcontent').publish('hide');
-                    postal.channel('rightcontent').publish('show');
-                } else {
-                    channel.publish(this.$element.parent().data('path'), {path: this.$element.data('path')});
-                }
             }
         }
 
