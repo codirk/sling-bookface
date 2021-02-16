@@ -32,31 +32,15 @@ define([
                 case  'bf.template-form-textarea':
                     return require(['../commons/template-form-textarea.js'], callback);
 
-                case  'bf.story-create':
-//                    return require(['../BBBeans/story-create.js'], callback);
+                case  'bf.create':
                     return require(['../BBBeans/character-create.js'], callback);
-                case  'bf.story-listview':
-//                    return require(['../BBBeans/story-listview.js'], callback);
+                case  'bf.listview':
                     return require(['../BBBeans/character-listview.js'], callback);
-//                case  'bf.story':
-//                    return require(['../BBBeans/story.js'], callback);
-                case  'bf.story-details':
-//                    return require(['../BBBeans/story-details.js'], callback);
-                    return require(['../BBBeans/character-details.js'], callback);
-                case  'bf.story-card':
-//                    return require(['../BBBeans/story-card.js'], callback);
-                    return require(['../BBBeans/character-card.js'], callback);
-
-
-                case  'bf.character-create':
-                    return require(['../BBBeans/character-create.js'], callback);
-                case  'bf.character-listview':
-                    return require(['../BBBeans/character-listview.js'], callback);
-                case  'bf.character-listitem':
+                case  'bf.listitem':
                     return require(['../BBBeans/character-listitem.js'], callback);
-                case  'bf.character-details':
+                case  'bf.details':
                     return require(['../BBBeans/character-details.js'], callback);
-                case  'bf.character-card':
+                case  'bf.card':
                     return require(['../BBBeans/character-card.js'], callback);
 
                 case  'bf.suffix-resource':

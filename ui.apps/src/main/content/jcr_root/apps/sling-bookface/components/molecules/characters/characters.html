@@ -1,13 +1,13 @@
 <div class="characters" >
     <div>
-        <ul data-component-name="bf.character-listview" data-path="${resource.path}/characters">
+        <ul data-component-name="bf.listview" data-path="${resource.path}/characters">
             <sly data-sly-resource="${'./characters' @ selectors='itemlist', resourceType='sling-bookface/components/molecules/characters' }"
                  data-sly-test="${resource['characters/jcr:primaryType']}" />
         </ul>
         <!--/*
             <sly data-sly-include="/apps/sling-bookface/components/atoms/createStory/createStory.html"/>
         */-->
-        <div data-component-name="bf.character-create" data-path="${resource.path}/characters">
+        <div data-component-name="bf.create" data-path="${resource.path}/characters">
             <i class="fa fa-plus-circle" aria-hidden="true" ></i>
             <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
                  data-sly-call="${template.newEntryForm @
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div data-component-name="bf.character-details" data-path="${resource.path}/characters">
+    <div data-component-name="bf.details" data-path="${resource.path}/characters">
         no item selected
     </div>
 </div>

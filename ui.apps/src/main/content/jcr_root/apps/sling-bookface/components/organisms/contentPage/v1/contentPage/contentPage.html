@@ -47,7 +47,7 @@
         TODO move to own file when refactoring is done
         <sly data-sly-include="/apps/sling-bookface/components/atoms/createStory/createStory.html"/>
         /*-->
-        <div data-component-name="bf.story-create" data-path="${resource.path}/stories">
+        <div data-component-name="bf.create" data-path="${resource.path}/stories">
             <i class="fa fa-plus-circle" aria-hidden="true" ></i>
             <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
                  data-sly-call="${template.newEntryForm @
@@ -101,7 +101,7 @@
         */-->
 
 
-        <div data-component-name="bf.story-details" data-path="${resource.path}/stories">
+        <div data-component-name="bf.details" data-path="${resource.path}/stories">
             no item selected
         </div>
     </div>
