@@ -4,16 +4,27 @@
     <div class="tab">
         <button class="active" data-tab-name="project">Projekt</button>
         <button data-tab-name="characters">Charactere</button>
-        <button>Orte</button>
-        <button>Handlung</button>
-        <button>Szene</button>
+        <button data-tab-name="locations">Orte</button>
+        <button data-tab-name="plots">Handlung</button>
+        <button data-tab-name="scenes">Szenen</button>
         <button>Statistiken</button>
     </div>
 
     <div class="tabcontent" name="project">
         <sly data-sly-resource="${ @ resourceType='/apps/sling-bookface/components/atoms/story/details/details.html'}"/>
     </div>
+
     <div class="tabcontent" name="characters" hidden>
+        <sly data-sly-resource="${ @ resourceType='sling-bookface/components/molecules/characters'}" />
+    </div>
+
+    <div class="tabcontent" name="locations" hidden>
+        <sly data-sly-resource="${ @ resourceType='sling-bookface/components/molecules/locations'}" />
+    </div>
+    <div class="tabcontent" name="plots" hidden>
+        <sly data-sly-resource="${ @ resourceType='sling-bookface/components/molecules/characters'}" />
+    </div>
+    <div class="tabcontent" name="scenes" hidden>
         <sly data-sly-resource="${ @ resourceType='sling-bookface/components/molecules/characters'}" />
     </div>
 

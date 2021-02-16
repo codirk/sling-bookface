@@ -1,0 +1,45 @@
+<div class="locations" >
+    <div>
+        <!--/*
+        <ul data-component-name="bf.listview" data-path="${resource.path}/locations">
+            <sly data-sly-resource="${'./locations' @ selectors='itemlist',
+                 resourceType='sling-bookface/components/molecules/locations' }"
+                 data-sly-test="${resource['locations/jcr:primaryType']}"
+            />
+        </ul>
+        */-->
+
+        <div class="story-card"
+             data-component-name="bf.listview"
+             data-path="${resource.path}/locations"
+        >
+            <sly data-sly-resource="${'./locations' @ selectors='itemlist',
+                 resourceType='sling-bookface/components/molecules/locations' }"
+                 data-sly-test="${resource['locations/jcr:primaryType']}"
+            />
+        </div>
+                <!--/*
+                    <sly data-sly-include="/apps/sling-bookface/components/atoms/createStory/createStory.html"/>
+                */-->
+        <div data-component-name="bf.create" data-path="${resource.path}/locations">
+            <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+            <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+                 data-sly-call="${template.newEntryForm @
+                                    nameHint='location',
+                                    path='locations',
+
+                                    propertyName='location-name',
+                                    propertyValue='new location',
+                                    resourceType='sling-bookface/components/atoms/location',
+
+                                    containerResourceType='sling-bookface/components/molecules/locations'
+                                }" >
+            </sly>
+        </div>
+    </div>
+
+    <!--/*
+    <div data-component-name="bf.details" data-path="${resource.path}/locations">
+        no item selected
+    </div> */-->
+</div>

@@ -1,0 +1,10 @@
+<!--
+Listview resource path: ${resource.path}
+-->
+<sly data-sly-list="${resource.children}">
+
+    <div data-component-name="bf.listitem" data-path="${item.path}" data-messagebus-publish="characters">
+        <sly data-sly-resource="${item @ resourceType='sling-bookface/components/atoms/location/card'}" />
+    </div>
+</sly>
+
