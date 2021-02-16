@@ -37,12 +37,15 @@ define([
 
 
         setActive(){
+            /*
             $('.active', this.$element.parent().parent().parent()).each(
                 function ($element) {
                     $('div', $element).removeClass("active");
                 }
             )
             this.$element.toggleClass("active");
+            */
+
             history.pushState({}, null, this.$element.data('url'));
             /*
                window.history.replaceState(statedata, title, url);

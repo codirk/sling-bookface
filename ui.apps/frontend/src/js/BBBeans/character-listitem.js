@@ -39,12 +39,21 @@ define([
                 $(this).remove();
             });
         }
+        setActive(){
+            $('.active', this.$element.parent().parent().parent()).each(
+                function ($element) {
+                    $('div', $element).removeClass("active");
+                }
+            )
+            this.$element.toggleClass("active");
+        }
 
         click(event) {
             if(event && $(event.target).data('component-name')=='bf.delete-resource'){
                 var channel = postal.channel('item-deleted');
                 channel.publish('update-details', {path: this.$element.data('path')})
             }else {
+                this.setActive();
                 var channel = postal.channel('item-selected');
                 channel.publish(this.$element.data('path'), {path: this.$element.data('path')});
             }

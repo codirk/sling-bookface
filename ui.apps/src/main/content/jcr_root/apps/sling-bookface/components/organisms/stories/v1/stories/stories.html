@@ -1,8 +1,11 @@
-<div    data-sly-list="${resource.children}"
-        data-component-name="bf.story-listview"
-        data-path="${resource.path}"
+<div class="story-card" data-sly-list="${resource.children}"
+     data-component-name="bf.story-listview"
+     data-path="${resource.path}"
 
 >
+    <!--
+    TODO rename story-card css class to story-cards because its a container
+    -->
     <!--/*
      data-sly-use.model="de.messetat.bookface.core.models.UnwrapModel"
         data-sly-unwrap="${model.unwrap}"
@@ -13,5 +16,7 @@
 
 
     */-->
-    <sly data-sly-resource="${item.path @ resourceType='sling-bookface/components/atoms/story/card'}"/>
+    <div  data-component-name="bf.character-listitem" data-path="${item.path}">
+        <sly data-sly-resource="${item.path @ resourceType='sling-bookface/components/atoms/story/card'}"/>
+    </div>
 </div>
