@@ -40,7 +40,7 @@ define([
 
 
         setActive(){
-            $('.active', this.$element.parent().parent()).each(
+            $('.active', this.$element.parent().parent().parent()).each(
                 function ($element) {
                     $('div', $element).removeClass("active");
                 }

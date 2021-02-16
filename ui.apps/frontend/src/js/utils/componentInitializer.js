@@ -29,6 +29,8 @@ define([
                     return require(['../commons/delete-resource.js'], callback);
                 case  'bf.tab-switcher':
                     return require(['../commons/tab-switcher.js'], callback);
+                case  'bf.template-form-textarea':
+                    return require(['../commons/template-form-textarea.js'], callback);
                 case  'bf.stories':
                     return require(['../BBBeans/stories.js'], callback);
                 case  'bf.story':
@@ -49,8 +51,6 @@ define([
                     return require(['../BBBeans/character-card.js'], callback);
                 case  'bf.suffix-resource':
                     return require(['../BBBeans/suffix-resource.js'], callback);
-                case  'bf.story-field':
-                    return require(['../BBBeans/story-field.js'], callback);
                 case  'bf.story-card':
                     return require(['../BBBeans/story-card.js'], callback);
                 case  'bf.content-navigation-toggler':
