@@ -14,15 +14,7 @@
 
 <body>
 
-<sly data-sly-include="/apps/sling-bookface/components/atoms/suffix-resource/suffix-resource.html" />
-
-<!--/*
-<sly
-        data-sly-resource="${request.requestPathInfo.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/storyName/storyName.html'}"
-/>*/-->
-<!--
-<p>Sehen Sie sich den Quellcode dieser Seite an.<kbd>(Kontextmenu: Seitenquelltext anzeigen)</kbd></p>
--->
+<sly data-sly-include="/apps/sling-bookface/components/atoms/suffix-resource/suffix-resource.html"/>
 
 <div class="contentpage">
 
@@ -39,7 +31,7 @@
 
             <div class="tabcontent" name="all">
                 <sly data-sly-resource="${'./stories'}"
-                     data-sly-test="${resource['stories/jcr:primaryType']}" />
+                     data-sly-test="${resource['stories/jcr:primaryType']}"/>
             </div>
         </div>
 
@@ -48,7 +40,7 @@
         <sly data-sly-include="/apps/sling-bookface/components/atoms/createStory/createStory.html"/>
         /*-->
         <div data-component-name="bf.create" data-path="${resource.path}/stories">
-            <i class="fa fa-plus-circle" aria-hidden="true" ></i>
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
             <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
                  data-sly-call="${template.newEntryForm @
                                     nameHint='story',
@@ -57,57 +49,27 @@
                                     propertyValue='new Story',
                                     resourceType='sling-bookface/components/atoms/story',
 
-                                    containerResourceType='sling-bookface/components/organisms/stories/v1/stories'
-                                 }" >
+                                    containerResourceType='sling-bookface/components/molecules/stories'
+                                 }">
             </sly>
-            <!--/*
-                <form hidden action="${resource.path}/" method="post">
-                    <input name=":nameHint" value="story" />
-                    <input name="title" value="new Story" />
-                    <input name="created">
-                </form>
-            */-->
         </div>
     </div>
 
     <div class="content">
-
-        <!--/*
-        <sly data-sly-use.model="de.messetat.bookface.core.models.StoryModel"
-             data-sly-test="${model.suffixResource}"
-             data-sly-resource="${model.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/story/story.html'}"
-        />
-        */-->
-        <h1 class="title"><i class="fa fa-bars" data-component-name="bf.content-navigation-toggler"
-                             aria-hidden="true"></i>
-
-            <!--/*
-            <sly
-                    data-sly-test="${request.requestPathInfo.suffixResource}"
-                    data-sly-resource="${request.requestPathInfo.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/storyName/storyName.html'}"
-            />*/-->
+        <h1 class="title">
+            <i class="fa fa-bars"
+               data-component-name="bf.content-navigation-toggler"
+               aria-hidden="true">
+            </i>
 
             <i class="fa fa-ellipsis-h"
-               aria-hidden="true"></i></h1>
-
-
-        <!-- existing container div needed to update the content when clicking on the navigation -->
-
-        <!--/*
-        <sly
-                data-sly-test="${request.requestPathInfo.suffixResource}"
-                data-sly-resource="${request.requestPathInfo.suffixResource @ resourceType='/apps/sling-bookface/components/atoms/story/story.html'}"
-        />
-        */-->
-
+               aria-hidden="true"></i>
+        </h1>
 
         <div data-component-name="bf.details" data-path="${resource.path}/stories">
             no item selected
         </div>
     </div>
-
-
-
 
 </div>
 

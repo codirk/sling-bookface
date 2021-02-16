@@ -7,5 +7,9 @@
             jcr:primaryType="sling:MessageEntry"
             sling:key="all"
             sling:message="all projects"/>
+    <projecttitle
+            jcr:primaryType="sling:MessageEntry"
+            sling:key="projecttitle"
+            sling:message="Projecttitel"/>
 
 </jcr:root>

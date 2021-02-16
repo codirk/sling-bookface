@@ -5,6 +5,15 @@
           jcr:primaryType="nt:folder">
     <all
             jcr:primaryType="sling:MessageEntry"
-            sling:key="alle" />
+            sling:key="all"
+            sling:message="alle"
+    />
+
+    <projecttitle
+            jcr:primaryType="sling:MessageEntry"
+            sling:key="projecttitle"
+            sling:message="Projekttitel "
+    />
+
 
 </jcr:root>

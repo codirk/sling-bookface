@@ -16,6 +16,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 @Model(adaptables = SlingHttpServletRequest.class, resourceType = "sling/servlet/default")
+@Deprecated
 public class UnwrapModel {
 
 

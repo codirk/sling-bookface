@@ -35,7 +35,7 @@
 </sly>
 */-->
 <template data-sly-template.textareaForm="${@ propertyLabel, placeholder, propertyName, channel, topic}">
-    <h1>${propertyLabel}</h1>
+    <h1>${propertyLabel  @ i18n }</h1>
     <form data-component-name="bf.template-form-textarea" data-channel="${channel}" data-topic="${topic}" action="${resource.path}" method="post">
         <textarea placeholder="${placeholder}" name="${propertyName}"  >${resource[propertyName]}</textarea>
     </form>

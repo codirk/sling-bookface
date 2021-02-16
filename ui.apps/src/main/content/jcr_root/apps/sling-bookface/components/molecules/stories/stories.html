@@ -6,16 +6,6 @@
     <!--
     TODO rename story-card css class to story-cards because its a container
     -->
-    <!--/*
-     data-sly-use.model="de.messetat.bookface.core.models.UnwrapModel"
-        data-sly-unwrap="${model.unwrap}"
-
-    TTT${request.attribute['test']}TTT
-    ${request.pathInfo}
-    ${resource.path}
-
-
-    */-->
     <sly data-sly-list="${resource.children}">
         <div data-component-name="bf.listitem" data-path="${item.path}"
              data-url="${resource.parent.path}.html${item.path}">

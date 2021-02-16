@@ -21,6 +21,7 @@ import java.io.IOException;
                 "sling.servlet.resourceTypes=" + ServletResolverConstants.DEFAULT_RESOURCE_TYPE,
                 "sling.servlet.extensions=" + "pingu"
         })
+@Deprecated
 public class PingServlet extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUID = 1L;
