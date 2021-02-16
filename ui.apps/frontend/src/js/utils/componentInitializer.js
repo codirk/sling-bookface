@@ -41,7 +41,8 @@ define([
                 case  'bf.story':
                     return require(['../BBBeans/story.js'], callback);
                 case  'bf.story-details':
-                    return require(['../BBBeans/story-details.js'], callback);
+//                    return require(['../BBBeans/story-details.js'], callback);
+                    return require(['../BBBeans/character-details.js'], callback);
                 case  'bf.story-card':
                     return require(['../BBBeans/story-card.js'], callback);
 

@@ -30,12 +30,9 @@ define([
             this.path=this.$element.data('path');
             // register this instance to some event
             this.$element.click($.proxy(this.click, this));
-            this.channel = postal.channel('stories');
-            this.channel.subscribe('story.inital.change', $.proxy(this.storyChanged, this));
 
-            // this.channel.subscribe("story.change", $.proxy(this.unsubscribe, this));
-            //TODO if this.suffix id this path
-            //             this.subscription = this.channel.subscribe('story-title.change', $.proxy(this.updateTitle, this));
+            this.channel = postal.channel('stories');
+            this.channel.subscribe('inital.change', $.proxy(this.initialChange, this));
         }
 
 
@@ -59,15 +56,12 @@ define([
 
 
         }
+
         click() {
             this.setActive();
-
-
-
-
         }
 
-        storyChanged(data) {
+        initialChange(data) {
             if(data.path == this.path){
                 this.setActive();
             }

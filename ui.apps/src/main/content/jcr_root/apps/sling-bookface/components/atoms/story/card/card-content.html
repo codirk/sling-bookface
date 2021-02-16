@@ -4,8 +4,8 @@ card.content resource path: ${resource.path}
 
 <div class="story-card" >
     <div data-component-name="bf.story-card" data-url="${resource.parent.parent.path}.html${resource.path}" data-path="${resource.path}" >
-        <div><i class="fa fa-circle" aria-hidden="true"></i><a href="#">
-            ${properties['title']}</a> <i class="fa fa-times" aria-hidden="true" data-component-name="bf.delete-resource"
+        <div><i class="fa fa-circle" aria-hidden="true"></i>
+            ${properties['title']} <i class="fa fa-times" aria-hidden="true" data-component-name="bf.delete-resource"
                                           data-path="${resource.path}"></i>
         </div>
         <div><i class="fa fa-calendar" aria-hidden="true"></i> ${'DD-MM-YYYY' @ format = properties['jcr:created']}
