@@ -35,6 +35,10 @@ define([
 
             channel.subscribe('story.change', $.proxy(this.update, this));
 
+            channel = postal.channel('item-selected');
+            channel.subscribe('item-selected', $.proxy(this.update, this));
+            // channel.subscribe('update-details', $.proxy(this.update, this));
+
             var channel = postal.channel('item-deleted');
             channel.subscribe('update-details', $.proxy(this.delete, this));
 

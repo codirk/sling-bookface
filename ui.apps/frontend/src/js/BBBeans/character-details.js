@@ -33,8 +33,8 @@ define([
             if (this.$element.data('path')) {
                 channel.subscribe(this.$element.data('path'), $.proxy(this.update, this));
             }
-
-            channel.subscribe('*', $.proxy(this.update, this));
+            //TODO check if this is the mass call
+            channel.subscribe('item-selected', $.proxy(this.update, this));
 
             var channel = postal.channel('item-deleted');
             channel.subscribe('update-details', $.proxy(this.delete, this));

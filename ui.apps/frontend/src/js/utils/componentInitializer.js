@@ -38,13 +38,15 @@ define([
                 case  'bf.story-listview':
 //                    return require(['../BBBeans/story-listview.js'], callback);
                     return require(['../BBBeans/character-listview.js'], callback);
-                case  'bf.story':
-                    return require(['../BBBeans/story.js'], callback);
+//                case  'bf.story':
+//                    return require(['../BBBeans/story.js'], callback);
                 case  'bf.story-details':
 //                    return require(['../BBBeans/story-details.js'], callback);
                     return require(['../BBBeans/character-details.js'], callback);
                 case  'bf.story-card':
-                    return require(['../BBBeans/story-card.js'], callback);
+//                    return require(['../BBBeans/story-card.js'], callback);
+                    return require(['../BBBeans/character-card.js'], callback);
+
 
                 case  'bf.character-create':
                     return require(['../BBBeans/character-create.js'], callback);
@@ -71,6 +73,9 @@ define([
             // does it make sense to change data-component-name to data-component-names?
             // to make it possible to register more than one js class to the same html element?
             var $componentsToBeInitialized = $root ? $('*[' + 'data-component-name' + ']', $root) : $('*[' + 'data-component-name' + ']');
+            logger.info(`going to initialize ${$componentsToBeInitialized.length} components`);
+
+
             var promises = [];
             $componentsToBeInitialized.each(function (index, element) {
 

@@ -55,7 +55,7 @@ define([
             }else {
                 this.setActive();
                 var channel = postal.channel('item-selected');
-                channel.publish(this.$element.data('path'), {path: this.$element.data('path')});
+                channel.publish('item-selected', {path: this.$element.data('path')});
             }
         }
 
