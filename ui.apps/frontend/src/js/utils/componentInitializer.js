@@ -51,8 +51,6 @@ define([
                     return require(['../BBBeans/suffix-resource.js'], callback);
                 case  'bf.story-field':
                     return require(['../BBBeans/story-field.js'], callback);
-                case  'bf.message-dispatcher':
-                    return require(['../BBBeans/message-dispatcher.js'], callback);
                 case  'bf.story-card':
                     return require(['../BBBeans/story-card.js'], callback);
                 case  'bf.content-navigation-toggler':
