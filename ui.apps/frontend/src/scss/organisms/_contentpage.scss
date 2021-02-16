@@ -6,8 +6,9 @@
   display: flex;
 
 
-  @import '../molecules/contentnavigation';
+  @import '../molecules/leftcontent';
   @import '../molecules/content';
+  @import '../molecules/rightcontent';
 
 
   // @import '../molecules/molecule';

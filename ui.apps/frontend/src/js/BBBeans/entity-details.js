@@ -32,9 +32,9 @@ define([
             // TODO implement deeplink funtionality by suffix resource or by anchor hash
             if (this.$element.data('path')) {
                 channel.subscribe(this.$element.data('path'), $.proxy(this.update, this));
+            }else {
+                channel.subscribe(this.$element.data('messagebus-subscribe'), $.proxy(this.update, this));
             }
-            //TODO check if this is the mass call
-            channel.subscribe('item-selected', $.proxy(this.update, this));
 
             var channel = postal.channel('item-deleted');
             channel.subscribe('update-details', $.proxy(this.delete, this));

@@ -1,7 +1,21 @@
 <!--
 card.content resource path: ${resource.path}
 -->
+<!--/*
 ${properties['character-name']} <i class="fa fa-times" aria-hidden="true" data-component-name="bf.delete-resource"
                                   data-path="${resource.path}"></i>
+*/-->
+
+<div data-component-name="bf.card" data-url="${resource.parent.parent.path}.html${resource.path}" data-path="${resource.path}" >
+    <div><i class="fa fa-circle" aria-hidden="true"></i>
+        <i class="fa fa-address-card-o" aria-hidden="true"></i>
+
+        ${properties['character-name']} <i class="fa fa-times" aria-hidden="true" data-component-name="bf.delete-resource"
+                                  data-path="${resource.path}"></i>
+    </div>
+    <div><i class="fa fa-calendar" aria-hidden="true"></i> ${'DD-MM-YYYY' @ format = properties['jcr:created']}
+        <sly data-sly-test="${properties.label}"><span>#</span> ${properties['label']}</sly>
+    </div>
+</div>
 
 

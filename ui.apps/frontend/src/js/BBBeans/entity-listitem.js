@@ -71,7 +71,14 @@ define([
             } else {
                 this.setActive();
                 var channel = postal.channel('item-selected');
-                channel.publish(this.$element.parent().data('path'), {path: this.$element.data('path')});
+                if (this.$element.data('messagebus-publish')) {
+                    channel.publish(this.$element.data('messagebus-publish'), {path: this.$element.data('path')});
+
+                    postal.channel('leftcontent').publish('hide');
+                    postal.channel('rightcontent').publish('show');
+                } else {
+                    channel.publish(this.$element.parent().data('path'), {path: this.$element.data('path')});
+                }
             }
         }
 

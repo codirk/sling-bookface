@@ -43,6 +43,11 @@ define([
                 case  'bf.card':
                     return require(['../BBBeans/entity-card.js'], callback);
 
+                case  'bf.leftcontent':
+                    return require(['../BBBeans/leftcontent.js'], callback);
+                case  'bf.rightcontent':
+                    return require(['../BBBeans/rightcontent.js'], callback);
+
                 case  'bf.suffix-resource':
                     return require(['../BBBeans/suffix-resource.js'], callback);
                 case  'bf.content-navigation-toggler':

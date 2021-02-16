@@ -26,13 +26,18 @@ define([
         }
 
         initialize() {
-            // register this instance to some event
-             this.$element.click($.proxy(this.click, this));
+
+            var channel = postal.channel('rightcontent');
+            channel.subscribe('toggle',  $.proxy(this.toggle, this));
+            channel.subscribe('hide',  $.proxy(this.hide, this));
         }
 
-        click() {
-            var channel = postal.channel('leftcontent');
-            channel.publish('toggle',  {});
+        toggle() {
+            this.$element.fadeToggle('fast');
+        }
+
+        hide() {
+            this.$element.fadeOut('fast');
         }
 
     };

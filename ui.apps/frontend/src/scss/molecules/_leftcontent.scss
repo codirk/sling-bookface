@@ -1,4 +1,5 @@
-.contentnavigation {
+.leftcontent {
+
   width: 20%;
   height: 80vh;
   position: relative;
@@ -6,7 +7,7 @@
   h1 {
     width: 100%;
     text-align: center;
-    font-weight: normal ;
+    font-weight: normal;
 
   }
 
@@ -21,7 +22,7 @@
 
   @import 'tabs';
 
-  i.fa-plus-circle{
+  i.fa-plus-circle {
     color: #c12127;
     font-size: 40px;
     position: absolute;
