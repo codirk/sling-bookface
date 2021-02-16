@@ -41,7 +41,9 @@ define([
             this.$element.fadeOut('fast');
         }
         show() {
-            this.$element.fadeIn('fast');
+            this.$element.show("slide", { direction: "left" }, 1000);
+
+           // this.$element.fadeIn('fast');
         }
 
     };

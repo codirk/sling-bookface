@@ -6,6 +6,14 @@
   display: flex;
 
 
+  i.fa-plus-circle {
+    color: #c12127;
+    font-size: 40px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
+
   @import '../molecules/leftcontent';
   @import '../molecules/content';
   @import '../molecules/rightcontent';
