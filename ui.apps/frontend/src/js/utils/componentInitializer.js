@@ -31,14 +31,20 @@ define([
                     return require(['../commons/tab-switcher.js'], callback);
                 case  'bf.template-form-textarea':
                     return require(['../commons/template-form-textarea.js'], callback);
+
+                case  'bf.story-create':
+//                    return require(['../BBBeans/story-create.js'], callback);
+                    return require(['../BBBeans/character-create.js'], callback);
                 case  'bf.story-listview':
-                    return require(['../BBBeans/story-listview.js'], callback);
+//                    return require(['../BBBeans/story-listview.js'], callback);
+                    return require(['../BBBeans/character-listview.js'], callback);
                 case  'bf.story':
                     return require(['../BBBeans/story.js'], callback);
                 case  'bf.story-details':
                     return require(['../BBBeans/story-details.js'], callback);
-                case  'bf.story-create':
-                    return require(['../BBBeans/story-create.js'], callback);
+                case  'bf.story-card':
+                    return require(['../BBBeans/story-card.js'], callback);
+
                 case  'bf.character-create':
                     return require(['../BBBeans/character-create.js'], callback);
                 case  'bf.character-listview':
@@ -49,10 +55,9 @@ define([
                     return require(['../BBBeans/character-details.js'], callback);
                 case  'bf.character-card':
                     return require(['../BBBeans/character-card.js'], callback);
+
                 case  'bf.suffix-resource':
                     return require(['../BBBeans/suffix-resource.js'], callback);
-                case  'bf.story-card':
-                    return require(['../BBBeans/story-card.js'], callback);
                 case  'bf.content-navigation-toggler':
                     return require(['../BBBeans/content-navigation-toggler.js'], callback);
                 default:
