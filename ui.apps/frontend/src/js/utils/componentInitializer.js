@@ -31,8 +31,8 @@ define([
                     return require(['../commons/tab-switcher.js'], callback);
                 case  'bf.template-form-textarea':
                     return require(['../commons/template-form-textarea.js'], callback);
-                case  'bf.stories':
-                    return require(['../BBBeans/stories.js'], callback);
+                case  'bf.story-listview':
+                    return require(['../BBBeans/story-listview.js'], callback);
                 case  'bf.story':
                     return require(['../BBBeans/story.js'], callback);
                 case  'bf.story-details':
