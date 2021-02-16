@@ -33,15 +33,15 @@ define([
                     return require(['../commons/template-form-textarea.js'], callback);
 
                 case  'bf.create':
-                    return require(['../BBBeans/character-create.js'], callback);
+                    return require(['../BBBeans/entity-create.js'], callback);
                 case  'bf.listview':
-                    return require(['../BBBeans/character-listview.js'], callback);
+                    return require(['../BBBeans/entity-listview.js'], callback);
                 case  'bf.listitem':
-                    return require(['../BBBeans/character-listitem.js'], callback);
+                    return require(['../BBBeans/entity-listitem.js'], callback);
                 case  'bf.details':
-                    return require(['../BBBeans/character-details.js'], callback);
+                    return require(['../BBBeans/entity-details.js'], callback);
                 case  'bf.card':
-                    return require(['../BBBeans/character-card.js'], callback);
+                    return require(['../BBBeans/entity-card.js'], callback);
 
                 case  'bf.suffix-resource':
                     return require(['../BBBeans/suffix-resource.js'], callback);
