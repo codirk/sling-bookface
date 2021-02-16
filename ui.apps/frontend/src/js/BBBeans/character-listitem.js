@@ -28,34 +28,50 @@ define([
         }
 
         initialize() {
+            this.path = this.$element.data('path');
             this.$element.click($.proxy(this.click, this));
+
             var channel = postal.channel('item-deleted');
             channel.subscribe(this.$element.data('path'), $.proxy(this.delete, this));
 
+            channel = postal.channel('global');
+            channel.subscribe('inital.change', $.proxy(this.initialChange, this));
+
+        }
+
+        initialChange(data) {
+            if (data.path == this.path) {
+                this.setActive();
+            }
         }
 
         delete() {
-            this.$element.fadeOut("slow", function (){
+            this.$element.fadeOut("slow", function () {
                 $(this).remove();
             });
         }
-        setActive(){
+
+        setActive() {
             $('.active', this.$element.parent().parent().parent()).each(
                 function ($element) {
                     $('div', $element).removeClass("active");
                 }
             )
             this.$element.toggleClass("active");
+            if (this.$element.data('url')) {
+                history.pushState({}, null, this.$element.data('url'));
+                /* window.history.replaceState(statedata, title, url); */
+            }
         }
 
         click(event) {
-            if(event && $(event.target).data('component-name')=='bf.delete-resource'){
+            if (event && $(event.target).data('component-name') == 'bf.delete-resource') {
                 var channel = postal.channel('item-deleted');
                 channel.publish('update-details', {path: this.$element.data('path')})
-            }else {
+            } else {
                 this.setActive();
                 var channel = postal.channel('item-selected');
-                channel.publish('item-selected', {path: this.$element.data('path')});
+                channel.publish(this.$element.parent().data('path'), {path: this.$element.data('path')});
             }
         }
 

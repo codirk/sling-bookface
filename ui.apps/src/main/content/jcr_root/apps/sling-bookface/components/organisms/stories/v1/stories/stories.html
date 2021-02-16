@@ -1,4 +1,4 @@
-<div class="story-card" data-sly-list="${resource.children}"
+<div class="story-card"
      data-component-name="bf.story-listview"
      data-path="${resource.path}"
 
@@ -16,7 +16,10 @@
 
 
     */-->
-    <div  data-component-name="bf.character-listitem" data-path="${item.path}">
-        <sly data-sly-resource="${item.path @ resourceType='sling-bookface/components/atoms/story/card'}"/>
-    </div>
+    <sly data-sly-list="${resource.children}">
+        <div data-component-name="bf.character-listitem" data-path="${item.path}"
+             data-url="${resource.parent.path}.html${item.path}">
+            <sly data-sly-resource="${item.path @ resourceType='sling-bookface/components/atoms/story/card'}"/>
+        </div>
+    </sly>
 </div>

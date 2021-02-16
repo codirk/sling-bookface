@@ -42,7 +42,7 @@ define([
 
 
         currentPath() {
-            this.channel = postal.channel('stories');
+            this.channel = postal.channel('global');
             this.channel.publish('inital.change', {path: this.$element.data('path')});
         }
 
