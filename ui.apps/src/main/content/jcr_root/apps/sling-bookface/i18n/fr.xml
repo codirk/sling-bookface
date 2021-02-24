@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-    jcr:language="en"
+    jcr:language="fr"
     jcr:mixinTypes="[mix:language]"
     jcr:primaryType="nt:folder">
-    <all
-        jcr:primaryType="sling:MessageEntry"
-        sling:key="all"
-        sling:message="all projects"/>
+
     <projecttitle
         jcr:primaryType="sling:MessageEntry"
         sling:key="projecttitle"
-        sling:message="ProjecttitelEN"/>
+        sling:message="ProjecttitelFR"/>
 </jcr:root>
