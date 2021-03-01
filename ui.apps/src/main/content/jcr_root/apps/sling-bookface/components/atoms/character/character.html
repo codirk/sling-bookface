@@ -6,6 +6,10 @@ details resource path: ${resource.path}
 </sly>
 
 <sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
+     data-sly-call="${template.textareaForm @  propertyLabel='Properties', placeholder='Describe here...', propertyName='character-properties' }" >
+</sly>
+
+<sly data-sly-use.template="/apps/sling-bookface/components/templates/forms.html"
      data-sly-call="${template.textareaForm @  propertyLabel='Function in the Story', propertyName='function', placeholder='Describe here...'}" >
 </sly>
 

@@ -11,7 +11,7 @@
     </parent>
 
 
-    <artifactId>ui.content</artifactId>
+    <artifactId>ui.demo-content</artifactId>
     <name>${groupId}:${artifactId}</name>
 
     <packaging>content-package</packaging>
