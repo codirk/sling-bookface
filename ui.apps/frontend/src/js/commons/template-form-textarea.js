@@ -38,6 +38,7 @@ define([
             // alert('Hello Component Clicked');
            // debugger;
             var me=this;
+
             this.$element.ajaxForm(function() {
                 logger.debug(`${this.url} done `);
                 var channelName=me.$element.data('channel');
@@ -49,7 +50,46 @@ define([
                     var channel = postal.channel('resource-update');
                     channel.publish(me.$element.attr('action'), {});
                 }
-            }).submit();;
+            }).submit();
+
+            /*
+                      this.$element.submit(function( event ) {
+                          alert( "Handler for .submit() called." );
+                          event.preventDefault();
+                      }).submit();
+
+
+
+                      this.$element.submit(function(event){
+                          event.preventDefault(); //prevent default action
+                          var post_url = $(this).attr("action"); //get form action url
+                          var request_method = $(this).attr("method"); //get form GET/POST method
+                          var form_data = new FormData(this); //Creates new FormData object
+                          $.ajax({
+                              url : post_url,
+                              type: request_method,
+                              data : form_data,
+                              //contentType: false,
+                              contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                              cache: false,
+                              processData:false
+                          }).done(function(response){
+
+                              logger.debug(`${this.url} done `);
+                              var channelName=me.$element.data('channel');
+                              var topic=me.$element.data('topic');
+                              if(channelName && topic) {
+                                  var channel = postal.channel(channelName);
+                                  channel.publish(topic+me.$element.attr('action'), {title: $('textarea', me.$element).val()});
+                              }else{
+                                  var channel = postal.channel('resource-update');
+                                  channel.publish(me.$element.attr('action'), {});
+                              }
+                          });
+                      }).submit();
+          */
+
+
         }
 
          autoExpand () {

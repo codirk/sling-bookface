@@ -36,8 +36,14 @@
 */-->
 <template data-sly-template.textareaForm="${@ propertyLabel, placeholder, propertyName, channel, topic}">
     <h1>${propertyLabel  @ i18n }</h1>
-    <form data-component-name="bf.template-form-textarea" data-channel="${channel}" data-topic="${topic}" action="${resource.path}" method="post">
+    <form data-component-name="bf.template-form-textarea" data-channel="${channel}" data-topic="${topic}" action="${resource.path}" method="post" >
+        <!--/*
+        enctype="multipart/form-data"
+        enctype="application/x-www-form-urlencoded; charset=UTF-8"
+        /*-->
         <textarea placeholder="${placeholder}" name="${propertyName}"  >${resource[propertyName]}</textarea>
+        <input name="_charset_" value="UTF-8" hidden />
+        <!--/* http://localhost:8080/system/console/configMgr/org.apache.sling.engine.parameters */-->
     </form>
 </template>
 
